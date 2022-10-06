@@ -22,7 +22,20 @@
                                 <div id="success-msg" class="ui text success hide">suceess</div>
                                 <div id="error-msg" class="ui text error hide">error</div>
                             </div>
-                          
+                              <div class="field ${properties.kcFormGroupClass!} type-container mw-100">
+                                <div>
+                                    <input type="radio" onclick="javascript:passwordOrOtp();" name="usePasswordOrOTP" id="usePasswordRB" checked=true>&nbsp;
+                                    <label id="usePasswordLabel" for="usePasswordRB" class="">
+                                        Login with password
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" onclick="javascript:passwordOrOtp();" name="usePasswordOrOTP" id="useOTPRB" class="">&nbsp;
+                                    <label id="useOTPLabel" for="useOTPRB" class="">
+                                        Login with OTP
+                                    </label>
+                                </div>
+                            </div>
                             <div id="usePasswordDiv" class="mw-100" >
                                 <form id="kc-form-login" onsubmit="login.disabled = true; return true;" class="ui form" method="POST" action="${url.loginAction}">
 				                    <input type="hidden" name="page_type" value="login_with_pass" />
