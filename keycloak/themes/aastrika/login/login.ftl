@@ -177,9 +177,7 @@
                                                 <span class="or-text">or</span>
                                             </div>
                                         </div>
-                                        <div class="field">
-                                            <a id="loginp" href="/apis/public/v8/parichay/auth" class="ui fluid button">${msg("loginWithParichay")}</a>
-                                        </div>
+                                       
                                         <div id="kc-registration" class="field">
                                             <div class="ui content mt-40 signUpMsg">
                                                 <span>${msg("noAccount")} <a class="signUpLink" href="${client.baseUrl}public/signup">${msg("registerHere")}</a></span>
