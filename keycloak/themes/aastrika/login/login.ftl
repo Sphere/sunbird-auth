@@ -13,6 +13,9 @@
                     <#--  <div class="ui column tablet only computer only"></div>  -->
                     <div class="ui column height-fix">
                         <div class="max-container">
+                            <div class="ui header mb-40 centered">
+                                <h1 > Welcome! </h1>
+                            </div>
                             <div class="formMsg  textCenter">
                                 <#if message?has_content>
                                 <div class="ui text mb-30 ${message.type}">
