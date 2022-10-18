@@ -40,7 +40,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div id="usePasswordDiv" class="mw-100" >
+                            <div id="usePasswordDiv" class="mw-100" style="display:none">
                                 <form id="kc-form-login" onsubmit="login.disabled = true; return true;" class="ui form" method="POST" action="${url.loginAction}">
 				                    <input type="hidden" name="page_type" value="login_with_pass" />
                                     <div class="field">
@@ -134,7 +134,7 @@
                                     </div>
                                 </form>
                             </div>
-                            <div id="useOTPDiv" class="mw-100" style="display:none">
+                            <div id="useOTPDiv" class="mw-100" >
                                 <form id="kc-form-login" class="${properties.kcFormClass!} ui form" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                                     <input type="hidden" name="page_type" value="login_page" />
                                     <#--  <div class="${properties.kcFormGroupClass!}">
