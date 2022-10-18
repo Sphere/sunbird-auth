@@ -27,15 +27,16 @@
                             </div>
                               <div class="field ${properties.kcFormGroupClass!} type-container mw-100">
                                 <div>
-                                    <input type="radio" onclick="javascript:passwordOrOtp();" name="usePasswordOrOTP" id="usePasswordRB" checked=true>&nbsp;
-                                    <label id="usePasswordLabel" for="usePasswordRB" class="">
-                                        Login with password
-                                    </label>
-                                </div>
-                                <div>
-                                    <input type="radio" onclick="javascript:passwordOrOtp();" name="usePasswordOrOTP" id="useOTPRB" class="">&nbsp;
+                                  <input type="radio" onclick="javascript:passwordOrOtp();" name="usePasswordOrOTP" id="useOTPRB" class="">&nbsp;
                                     <label id="useOTPLabel" for="useOTPRB" class="">
                                         Login with OTP
+                                    </label>
+                                    
+                                </div>
+                                <div>
+                                  <input type="radio" onclick="javascript:passwordOrOtp();" name="usePasswordOrOTP" id="usePasswordRB" checked=true>&nbsp;
+                                    <label id="usePasswordLabel" for="usePasswordRB" class="">
+                                        Login with password
                                     </label>
                                 </div>
                             </div>
@@ -68,7 +69,7 @@
                                                 ${msg("password")}
                                             </label>
                                             <#if realm.resetPasswordAllowed>
-                                                <a id="fgtKeycloakFlow" class="ui right floated forgetPasswordLink hide" tabindex="1" onclick="javascript:storeLocation(); javascript:makeDivUnclickable()" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a>
+                                                <a id="fgtKeycloakFlow" class="ui right floated forgetPasswordLink hide" tabindex="1" onclick="javascript:storeLocation(); javascript:makeDivUnclickable()" href="${client.baseUrl}public/forgot-password">${msg("doForgotPassword")}</a>
                                                 <div id="fgtPortalFlow" class="ui right floated forgetPasswordLink hide" tabindex="1" onclick="javascript:forgetPassword('/recover/identify/account');javascript:makeDivUnclickable()">${msg("doForgotPassword")}</div>
                                             </#if>
                                             <label id="passwordLabelPlaceholder" for="password" class="activeLabelColor hide">
@@ -99,7 +100,7 @@
                                     
                                     <div id="kc-registration" class="field">
                                         <div class="ui content mt-40 signUpMsg">
-                                            <span>${msg("noAccount")} <a class="signUpLink" href="${client.baseUrl}public/signup">${msg("registerHere")}</a></span>
+                                            <span>${msg("noAccount")} <a class="signUpLink" href="${client.baseUrl}app/create-account">${msg("registerHere")}</a></span>
                                         </div>
                                     </div>
                                     <div id="selfSingUp" class="hide">

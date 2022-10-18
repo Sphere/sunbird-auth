@@ -8,10 +8,6 @@
             <div class="ui one column grid stackable">
                 <div class="ui column height-fix">
                     <div class="max-container">
-                        <div class="ui header centered">
-                            <img onerror="" alt="">
-                            <#--  <div class="signInHead mt-27">${msg("emailForgotTitle")}</div>  -->
-                        </div>
                         <div class="signInHead mt-27">
                             ${msg("enterCode")}
                         </div>
