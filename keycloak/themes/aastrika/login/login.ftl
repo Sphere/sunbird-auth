@@ -44,13 +44,13 @@
                                 <form id="kc-form-login" onsubmit="login.disabled = true; return true;" class="ui form" method="POST" action="${url.loginAction}">
 				                    <input type="hidden" name="page_type" value="login_with_pass" />
                                     <div class="field">
-                                        <label id="usernameLabel" for="username" class="">
+                                        <label id="usernameLabel" for="username" class="activeLabelColor hide">
                                             <#if !realm.loginWithEmailAllowed>${msg("username")}
                                             <#elseif !realm.registrationEmailAsUsername>${msg("emailOrPhone")}
                                             <#else>${msg("email")}
                                             </#if>
                                         </label>
-                                        <label id="usernameLabelPlaceholder" for="username" class="activeLabelColor hide">
+                                        <label id="usernameLabelPlaceholder" for="username" class=">
                                             <#if !realm.loginWithEmailAllowed>${msg("username")}
                                             <#elseif !realm.registrationEmailAsUsername>${msg("placeholderForEmailOrPhone")}
                                             <#else>${msg("email")}
@@ -69,7 +69,7 @@
                                                 ${msg("password")}
                                             </label>
                                             <#if realm.resetPasswordAllowed>
-                                                <a id="fgtKeycloakFlow" class="ui right floated forgetPasswordLink hide" tabindex="1" onclick="javascript:storeLocation(); javascript:makeDivUnclickable()" href="${client.baseUrl}public/forgot-password">${msg("doForgotPassword")}</a>
+                                                <a id="fgtKeycloakFlow" class="ui right floated forgetPasswordLink hide" tabindex="1" onclick="javascript:storeLocation(); javascript:makeDivUnclickable()" href="${client.baseUrl}public/forgot-password?">${msg("doForgotPassword")}</a>
                                                 <div id="fgtPortalFlow" class="ui right floated forgetPasswordLink hide" tabindex="1" onclick="javascript:forgetPassword('/recover/identify/account');javascript:makeDivUnclickable()">${msg("doForgotPassword")}</div>
                                             </#if>
                                             <label id="passwordLabelPlaceholder" for="password" class="activeLabelColor hide">
