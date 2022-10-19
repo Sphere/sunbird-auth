@@ -183,6 +183,7 @@
                                             <div class="ui content mt-40 signUpMsg">
                                                 <span>${msg("noAccount")} <a class="signUpLink" href="${client.baseUrl}public/signup">${msg("registerHere")}</a></span>
                                             </div>
+                                            <a href = "https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform" target="_blank">Get help on Whatsapp</a>
                                         </div>
                                         <div id="selfSingUp" class="hide">
                                             <p class="or my-16 textCenter">OR</p>

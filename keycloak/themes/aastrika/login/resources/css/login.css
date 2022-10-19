@@ -3,9 +3,7 @@
 body{
     font-family: "Poppins Regular";
     position: relative;
-    letter-spacing: 0.2px; 
-    background: url(../img/Login_background.png) no-repeat center center fixed;
-    background-size: cover;
+    letter-spacing: 0.2px;
 }
 .ui.container.fullpage-background-image{
     max-width: 320px !important;
@@ -100,8 +98,7 @@ body{
         background-size: cover;
         background-repeat: no-repeat;
         min-height: 100vh;
-        background: url(../img/Login_background.png) no-repeat center center fixed;
-        background-size: cover;
+        
         
      }
      .ui.container.fullpage-background-image{
