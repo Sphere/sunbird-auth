@@ -316,10 +316,10 @@ input[type='password']::placeholder {
     color: #DB4848 !important;
 }
 .whatsApp{
-    position: absolute;
-    left: 42px;
-    bottom: 2px;
-    z-index: 9;
+    position: absolute !important;
+    left: 42px !important;
+    bottom: 2px !important;
+    z-index: 9 !important;
 }
 .mt-8 {
     margin-top: 8px !important;
@@ -477,6 +477,7 @@ input[type='password']::placeholder {
     border-radius: 50px;
     transition: all .25s ease-in;
     margin-top: 70px !important;
+    position: relative !important;
 }
 
 /* .button:hover {
