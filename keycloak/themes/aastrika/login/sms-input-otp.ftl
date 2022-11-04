@@ -10,11 +10,11 @@
                     <img alt="Logo" src="${url.resourcesPath}/img/aastar-logo.svg" width="120">
                     <div class="max-container">
                         <div class="logo">
-                            <img alt="Logo" src="${url.resourcesPath}/img/SMS.png" width="120">
+                            <img alt="Logo" src="${url.resourcesPath}/img/SMS.png" width="100%">
                           </div>
                         <div class="signInHead mt-27">
                             <!-- ${msg("enterCode")} -->
-                            Check your EMAIL/SMS for OTP!
+                            Check your Email/SMS for OTP!
                         </div>
                         <div class="ui content textCenter mt-8 mb-28">
                             <#if message?has_content>
@@ -31,8 +31,8 @@
                             <div class="field">
                                 <p style="text-align: right !important">OTP Expires in <span class="warnText">10 Minutes</span></p>
                             </div>
-                            <div class="field">
-                                <button onclick="javascript:makeDivUnclickable()" class="ui fluid submit button" name="login" id="login" type="submit" value="${msg("doLogIn")}">${msg("doSubmit")}</button>
+                            <div class="field mb-20">
+                                <button onclick="javascript:makeDivUnclickable()" class="ui fluid submit button blueButton" name="login" id="login" type="submit" value="${msg("doLogIn")}">${msg("doSubmit")}</button>
                             </div>
                             <!-- <div class="field or-container">
                                 <div class="or-holder">
@@ -45,11 +45,11 @@
                         <form id="kc-totp-login-form" class="${properties.kcFormClass!} ui form pre-signin" action="${url.loginAction}" method="post">
 			                <input type="hidden" name="page_type" value="sms_otp_resend_page" />
                             <div class="field">
-                                <button onclick="javascript:makeDivUnclickable()" class="ui fluid submit button" name="login" id="login" type="submit" value="${msg("doLogIn")}">${msg("doResendOTP")}</button>
+                                <button onclick="javascript:makeDivUnclickable()" class="ui fluid submit button whiteButton" name="login" id="login" type="submit" value="${msg("doLogIn")}">${msg("doResendOTP")}</button>
                             </div>
                         </form>
-                        <div class="field">
-                            <span class="whatsApp">
+                        <div class="field rel">
+                            <span class="whatsApp-otp">
                             <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
                         </span>
                             <a class="ui fluid button greenButton"

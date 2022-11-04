@@ -263,10 +263,10 @@ input[type='password']::placeholder {
 .forgetPasswordLink {
     color: rgb(0, 116, 182, 1) !important;
     font-size: 12px;
-    line-height: 17px;
-    position: absolute;
-    right: 0;
-    top: 97px;
+    /* line-height: 17px;
+    position: absolute; */
+    /* right: 0;
+    top: 97px; */
     transition: all .25s ease-in;
     font-family: 'Poppins Medium', 'Noto Sans', sans-serif;
 }
@@ -281,7 +281,9 @@ input[type='password']::placeholder {
 .textCenter {
     text-align: center !important;
 }
-
+.mb-20 {
+    margin-bottom: 20px !important;
+}
 .mb-28 {
     margin-bottom: 28px !important;
 }
@@ -317,9 +319,18 @@ input[type='password']::placeholder {
 }
 .whatsApp{
     position: absolute !important;
-    left: 42px !important;
+    left: 46px !important;
     bottom: 2px !important;
     z-index: 9 !important;
+}
+.whatsApp-otp{
+    position: absolute !important;
+    left: 35px !important;
+    bottom: 3px !important;
+    z-index: 9 !important;
+}
+.rel{
+    position: relative !important;
 }
 .mt-8 {
     margin-top: 8px !important;
@@ -441,9 +452,8 @@ input[type='password']::placeholder {
 .ui.button {
     /* font-family: 'Roboto' !important; */
     font-size: 14px;
-    line-height: 19px;
-    height: 35px;
-
+    /* line-height: 19px; */
+    /* height: 35px; */
     border-radius: 50px;
     transition: all .25s ease-in;
 }
@@ -480,6 +490,9 @@ input[type='password']::placeholder {
     position: relative !important;
 }
 
+.mb-10 {
+    margin-bottom: 10px;
+}
 /* .button:hover {
     background-color: rgb(0, 116, 182, .8) !important;
 } */
@@ -494,6 +507,7 @@ input[type='password']::placeholder {
 
 .ui.text.error {
     color: #9f3a38;
+    font-weight: bold;
 }
 
 .ui.text.info {
@@ -529,16 +543,15 @@ i.icon.eye.slash:before {
 
 .ui.form {
     width: 340px;
-    ;
 }
 
 .ui.blue.button {
     box-shadow: 0 0 0 1px #024f9d inset !important;
 }
 
-.smsinput {
+/* .smsinput {
     letter-spacing: 3px;
-}
+} */
 
 .ui.form input:not([type]),
 .ui.form input[type=date],
@@ -710,4 +723,7 @@ img {
     .custom-wrapper .custom-grid {
         grid-template-columns: 1fr;
     }
+    /* .whatsApp {
+        left: 26px !important;
+    } */
 }

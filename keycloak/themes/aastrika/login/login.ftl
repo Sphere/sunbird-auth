@@ -52,7 +52,7 @@
                           method="POST" action="${url.loginAction}">
                           <input type="hidden" name="page_type" value="login_with_pass" />
                           <div class="field">
-                            <label id="usernameLabel" for="username" class="">
+                            <!-- <label id="usernameLabel" for="username" class="">
                               <#if !realm.loginWithEmailAllowed>${msg("username")}
                                 <#elseif !realm.registrationEmailAsUsername>
                                   ${msg("emailOrPhone")}
@@ -65,7 +65,7 @@
                                   ${msg("placeholderForEmailOrPhone")}
                                   <#else>${msg("email")}
                               </#if>
-                            </label>
+                            </label> -->
                             <#if usernameEditDisabled??>
                               <#-- TODO: need to find alternative for prepopulating username -->
                                 <input class="mt-8" id="username" name="username" type="text" disabled />
@@ -99,9 +99,6 @@
                               </div>
                             </#if>
                           </div>
-                          <div class="field">
-                            <button id="login" class="ui fluid button blueButton">${msg("doLogIn")}</button>
-                          </div>
                           <div>
                             <#if realm.resetPasswordAllowed>
                             <a id="fgtKeycloakFlow" class="ui right floated forgetPasswordLink hide" tabindex="1"
@@ -111,6 +108,9 @@
                               onclick="javascript:forgetPassword('/recover/identify/account');javascript:makeDivUnclickable()">
                               ${msg("doForgotPassword")}</div>
                           </#if>
+                          </div>
+                          <div class="field">
+                            <button id="login" class="ui fluid button blueButton">${msg("doLogIn")}</button>
                           </div>
                           <div class="field or-container">
                             <div class="or-holder">
