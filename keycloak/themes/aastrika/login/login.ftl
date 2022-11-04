@@ -109,7 +109,7 @@
                               ${msg("doForgotPassword")}</div>
                           </#if>
                           </div>
-                          <div class="field">
+                          <div class="field mt-10">
                             <button id="login" class="ui fluid button blueButton">${msg("doLogIn")}</button>
                           </div>
                           <div class="field or-container">

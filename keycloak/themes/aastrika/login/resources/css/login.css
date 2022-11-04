@@ -335,7 +335,9 @@ input[type='password']::placeholder {
 .mt-8 {
     margin-top: 8px !important;
 }
-
+.mt-10{
+    margin-top:10px;
+}
 .mb-18 {
     margin-bottom: 18px !important;
 }
@@ -716,6 +718,13 @@ img {
 
 
 @media screen and (max-width: 768px) {
+    .custom-wrapper {
+    min-height: 58vh;
+    justify-content: flex-start;
+    }
+    .max-container {
+        max-width: 318px;
+    }
     .custom-wrapper .custom-grid .left-box {
         display: none !important;
     }
@@ -723,7 +732,7 @@ img {
     .custom-wrapper .custom-grid {
         grid-template-columns: 1fr;
     }
-    /* .whatsApp {
+    .whatsApp {
         left: 26px !important;
-    } */
+    }
 }
