@@ -211,9 +211,7 @@
                           </a> -->
 
                           <div class="field">
-                            <button tabindex="0" name="login" id="kc-login" type="submit" class="ui fluid button blueButton">
-                              Get OTP
-                            </button>
+                            <button tabindex="0" name="login" id="kc-login" type="submit" class="ui fluid button blueButton" onclick="otpClick(event)">Get OTP</button>
                           </div>
                           <div class="field or-container">
                             <div class="or-holder">
@@ -286,6 +284,30 @@
               var slideIndex = 0;
               showSlides();
 
+              function otpClick(e){
+                var obj = {
+                  "BasicDetails" : {
+                    "EventDetails" : {
+                      "Name" : "Get OTP",
+                      "EventName" : "Clicked Get OTP Button",
+                      "EventValue" : "OTP"
+                    }
+                  }
+                }
+//                 var xhr = new XMLHttpRequest();
+//                 xhr.open("POST", 'http://track.plumb5.com/VisitorDetail/SaveDetail', true);
+// xhr.setRequestHeader("Content-Type", "application/json");
+// xhr.send(JSON.stringify((obj)));
+fetch("http://track.plumb5.com/VisitorDetail/SaveDetail", {
+  method: "POST",
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify(obj)
+}).then(res => {
+  console.log("Request complete! response:", res);
+  sessionStorage.setItem('save', "Request complete! response:")
+});
+
+              }
               function showSlides() {
                 var i;
                 var slides = document.getElementsByClassName("mySlides");
