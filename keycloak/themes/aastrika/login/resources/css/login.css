@@ -325,7 +325,7 @@ input[type='password']::placeholder {
 }
 .whatsApp-otp{
     position: absolute !important;
-    left: 35px !important;
+    left: 26px !important;
     bottom: 3px !important;
     z-index: 9 !important;
 }
@@ -510,6 +510,7 @@ input[type='password']::placeholder {
 .ui.text.error {
     color: #9f3a38;
     font-weight: bold;
+    text-align: left;
 }
 
 .ui.text.info {
@@ -720,7 +721,8 @@ img {
 @media screen and (max-width: 768px) {
     .custom-wrapper {
     min-height: 58vh;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
+    margin-left: -30px;
     }
     .max-container {
         max-width: 318px;
