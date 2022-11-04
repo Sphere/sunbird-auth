@@ -724,6 +724,9 @@ img {
     /* justify-content: flex-start; */
     margin-left: -30px;
     }
+    .ui.container.fullpage-background-image {
+        margin-right: 35px !important;
+    }
     .max-container {
         max-width: 318px;
     }
