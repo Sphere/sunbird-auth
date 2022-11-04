@@ -109,7 +109,7 @@ body {
     }
 
     .ui.container.fullpage-background-image {
-        max-width: 944px !important;
+        /* max-width: 944px !important; */
         /* padding: 20px 0 !important; */
         /* margin: 30px auto!important; */
         box-shadow: 0px 20px 60px #3E3E3E29 !important;
@@ -336,7 +336,7 @@ input[type='password']::placeholder {
     margin-top: 8px !important;
 }
 .mt-10{
-    margin-top:10px;
+    margin-top: 10px !important;
 }
 .mb-18 {
     margin-bottom: 18px !important;
@@ -732,7 +732,7 @@ img {
     .custom-wrapper .custom-grid {
         grid-template-columns: 1fr;
     }
-    .whatsApp {
+    .whatsApp-otp {
         left: 26px !important;
     }
 }
