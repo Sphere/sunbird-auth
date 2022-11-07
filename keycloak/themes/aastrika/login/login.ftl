@@ -14,7 +14,9 @@
                   </div> -->
                   <div class="ui column height-fix">
                     <div class="logo">
-                      <img alt="Logo" src="${url.resourcesPath}/img/aastar-logo.svg" width="120">
+                      <a href="/public/home">
+                        <img alt="Logo" src="${url.resourcesPath}/img/aastar-logo.svg" width="120">
+                      </a>
                     </div>
                     <div class="max-container">
                       <div class="ui header mtb">
@@ -110,7 +112,7 @@
                           </#if>
                           </div>
                           <div class="field mt-10">
-                            <button id="login" class="ui fluid button blueButton">${msg("doLogIn")}</button>
+                            <button id="login" class="ui fluid button blueButton" onclick="otpClick(event, 'Login Button', 'login')">${msg("doLogIn")}</button>
                           </div>
                           <div class="field or-container">
                             <div class="or-holder">
@@ -124,13 +126,13 @@
                               <!-- <span> -->
                                 <!-- ${msg("noAccount")} -->
                                 <a class="ui fluid button whiteButton"
-                                  href="${client.baseUrl}app/create-account">${msg("registerHere")}</a>
+                                  href="${client.baseUrl}app/create-account" onclick="otpClick(event, 'Create Account', 'createAccount-loginOTP')" id="createAccount-help">${msg("registerHere")}</a>
                                   <span class="whatsApp">
                                     <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
                                 </span>
                                   <a class="ui fluid button greenButton"
                                   href="https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform"
-                                  target="_blank">Get Help on WhatsApp?</a>
+                                  target="_blank" id="WhatsApp-loginOTP" onclick="otpClick(event,'WhatsApp', 'WhatsApp-loginOTP')">Get Help on WhatsApp?</a>
                               <!-- </span> -->
                             </div>
                           </div>
@@ -172,7 +174,7 @@
                       </div>
                       <div id="useOTPDiv" class="mw-100">
                         <form id="kc-form-login" class="${properties.kcFormClass!} ui form"
-                          onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
+                          action="${url.loginAction}" method="post">
                           <input type="hidden" name="page_type" value="login_page" />
                           <#-- <div class="${properties.kcFormGroupClass!}">
                             <div
@@ -211,7 +213,7 @@
                           </a> -->
 
                           <div class="field">
-                            <button tabindex="0" name="login" id="kc-login" type="submit" class="ui fluid button blueButton" onclick="otpClick(event)">Get OTP</button>
+                            <button tabindex="0" name="login" id="kc-login" type="submit" class="ui fluid button blueButton" onclick="otpClick(event, 'Login Button with OTP', 'kc-login')">Get OTP</button>
                           </div>
                           <div class="field or-container">
                             <div class="or-holder">
@@ -225,14 +227,14 @@
                               <!-- <span> -->
                                 <!-- ${msg("noAccount")}  -->
                                 <a class="ui fluid button whiteButton"
-                                  href="${client.baseUrl}app/create-account">${msg("registerHere")}</a>
+                                  href="${client.baseUrl}app/create-account" onclick="otpClick(event, 'Create Account', 'createAccount-loginOTP')" id="createAccount-help">${msg("registerHere")}</a>
                               <!-- </span> -->
                               <span class="whatsApp">
                                 <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
                             </span>
                               <a class="ui fluid button greenButton"
                                 href="https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform"
-                                target="_blank">Get Help on WhatsApp?</a>
+                                target="_blank" id="WhatsApp-loginOTP" onclick="otpClick(event, 'WhatsApp', 'WhatsApp-loginOTP')">Get Help on WhatsApp?</a>
                             </div>
                           </div>
                           <div id="selfSingUp" class="hide">
@@ -284,30 +286,28 @@
               var slideIndex = 0;
               showSlides();
 
-              function otpClick(e){
-                var obj = {
-                  "BasicDetails" : {
-                    "EventDetails" : {
-                      "Name" : "Get OTP",
-                      "EventName" : "Clicked Get OTP Button",
-                      "EventValue" : "OTP"
-                    }
-                  }
+              function otpClick(e, param1, param2){
+                e.preventDefault()
+                let obj = {
+                EventDetails: {
+                  EventName: param1,
+                  Name : param2
                 }
-//                 var xhr = new XMLHttpRequest();
-//                 xhr.open("POST", 'http://track.plumb5.com/VisitorDetail/SaveDetail', true);
-// xhr.setRequestHeader("Content-Type", "application/json");
-// xhr.send(JSON.stringify((obj)));
-fetch("http://track.plumb5.com/VisitorDetail/SaveDetail", {
-  method: "POST",
-  headers: {'Content-Type': 'application/json'},
-  body: JSON.stringify(obj)
-}).then(res => {
-  console.log("Request complete! response:", res);
-  sessionStorage.setItem('save', "Request complete! response:")
-});
-
               }
+              const userdata = Object.assign(MainVisitorDetails, obj)
+              fetch("http://track.plumb5.com/EventDetails/SaveEventDetails", {
+                method: "POST",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify( userdata)
+              }).then(res => {
+                if (document.getElementById("kc-form-login")) {
+                  setTimeout("submitForm()", 1000); // set timout
+                }
+              });
+            }
+            function submitForm() { // submits form
+              document.getElementById("kc-form-login").submit();
+            }
               function showSlides() {
                 var i;
                 var slides = document.getElementsByClassName("mySlides");

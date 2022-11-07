@@ -40,7 +40,7 @@ body {
     /* align-items: center; */
     justify-content: center;
     width: 100% !important;
-    min-width: 100%;
+    /* min-width: 100%; */
     /* overflow-y: auto;
     overflow-x: hidden;
     justify-content: center;
@@ -716,13 +716,16 @@ img {
         opacity: 1
     }
 }
-
+.ui.segment {
+    padding: 20px 15px !important;
+}
 
 @media screen and (max-width: 768px) {
     .custom-wrapper {
     min-height: 58vh;
     /* justify-content: flex-start; */
-    margin-left: -30px;
+    /* margin-left: -30px; */
+    margin-top: 15px;
     }
     .ui.container.fullpage-background-image {
         margin-right: 35px !important;
