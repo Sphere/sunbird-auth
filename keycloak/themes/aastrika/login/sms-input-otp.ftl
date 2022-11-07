@@ -83,7 +83,7 @@
           }
         }
         const userdata = Object.assign(MainVisitorDetails, obj)
-        fetch("http://track.plumb5.com/EventDetails/SaveEventDetails", {
+        fetch("https://track.plumb5.com/EventDetails/SaveEventDetails", {
           method: "POST",
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify( userdata)
