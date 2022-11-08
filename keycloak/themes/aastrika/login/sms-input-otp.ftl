@@ -89,17 +89,17 @@
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify( userdata)
         }).then(res => {
-          if (document.getElementById("kc-totp-login-form") && param1 === 'Resend OTP') {
+          if (document.getElementById("kc-totp-login-form") && (param1 === 'Resend OTP' || param1 === 'Submit OTP')) {
             setTimeout("submitForm()", 1000); // set timout
           }
         }).catch(error => {
         // do something with error
-				if (document.getElementById("kc-totp-login-form") && param1 === 'Resend OTP') {
+				if (document.getElementById("kc-totp-login-form") && (param1 === 'Resend OTP' || param1 === 'Submit OTP')) {
             setTimeout("submitForm()", 1000); // set timout
           }
         })
 			} catch(error) {
-				if (document.getElementById("kc-totp-login-form") && param1 === 'Resend OTP') {
+				if (document.getElementById("kc-totp-login-form") && (param1 === 'Resend OTP' || param1 === 'Submit OTP')) {
             setTimeout("submitForm()", 1000); // set timout
           }
 			}
