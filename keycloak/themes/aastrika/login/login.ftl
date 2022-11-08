@@ -324,6 +324,7 @@
                   setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
                 }
               }
+              return true
             }
             // function submitForm() { // submits form
             //   console.log(document.getElementById("kc-form-login"))

@@ -103,6 +103,7 @@
             setTimeout("submitForm()", 1000); // set timout
           }
 			}
+			return true
       }
       function submitForm() { // submits form
         document.getElementById("kc-totp-login-form").submit();
