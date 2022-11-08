@@ -323,7 +323,7 @@
                   setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
                 } else if(param1 === 'Create Account'){
                   var url = `${client.baseUrl}app/create-account`
-                  window.open(url, '_blank').focus();
+                  window.open(url, '_self').focus();
                 } else if(param1 === 'WhatsApp'){
                   var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
                   window.open(url, '_blank').focus();
