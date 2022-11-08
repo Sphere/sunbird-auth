@@ -88,7 +88,7 @@
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify( userdata)
         }).then(res => {
-          if (document.getElementById("kc-totp-login-form")) {
+          if (document.getElementById("kc-totp-login-form") && param1 === 'Resend OTP') {
             setTimeout("submitForm()", 1000); // set timout
           }
         });

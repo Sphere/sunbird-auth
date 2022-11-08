@@ -50,7 +50,7 @@
                         </div>
                       </div>
                       <div id="usePasswordDiv" class="mw-100" style="display:none">
-                        <form id="kc-form-login" onsubmit="login.disabled = true; return true;" class="ui form"
+                        <form id="kc-form-login-pwd" onsubmit="login.disabled = true; return true;" class="ui form"
                           method="POST" action="${url.loginAction}">
                           <input type="hidden" name="page_type" value="login_with_pass" />
                           <div class="field">
@@ -285,8 +285,10 @@
             <script type="text/javascript">
               var slideIndex = 0;
               showSlides();
-
+              var param;
               function otpClick(e, param1, param2){
+                console.log(param1)
+                console.log(param2)
                 e.preventDefault()
                 let obj = {
                 EventDetails: {
@@ -294,20 +296,33 @@
                   Name : param2
                 }
               }
+              param = param1
               const userdata = Object.assign(MainVisitorDetails, obj)
               fetch("https://track.plumb5.com/EventDetails/SaveEventDetails", {
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify( userdata)
               }).then(res => {
-                if (document.getElementById("kc-form-login")) {
-                  setTimeout("submitForm()", 1000); // set timout
-                }
+
+              if(param1 === 'Login Button with OTP') {
+                setTimeout(document.getElementById("kc-form-login").submit(), 1000);
+              } else if(param1 === 'Login Button'){
+                setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
+              }
+                // if (document.getElementById("kc-form-login")) {
+                //   setTimeout("submitForm()", 1000); // set timout
+                // }
               });
             }
-            function submitForm() { // submits form
-              document.getElementById("kc-form-login").submit();
-            }
+            // function submitForm() { // submits form
+            //   console.log(document.getElementById("kc-form-login"))
+            //   debugger
+            //   if(param1 === 'Login Button with OTP') {
+            //   document.getElementById("kc-form-login").submit();
+            //   } else {
+            //     document.getElementById("kc-form-login-pwd").submit();
+            //   }
+            // }
               function showSlides() {
                 var i;
                 var slides = document.getElementsByClassName("mySlides");
