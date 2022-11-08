@@ -26,7 +26,7 @@
                             </#if>
                         </div>
                         <form id="kc-totp-login-form" class="${properties.kcFormClass!} ui form pre-signin" action="${url.loginAction}" method="post">
-			                <input type="hidden" name="page_type" value="sms_otp_page" />
+                            <input type="hidden" name="page_type" value="sms_otp_page" />
                             <div class="field">
                                 <input id="totp" name="smsCode" placeholder="Enter OTP" type="text" class=" smsinput" onfocusin="inputBoxFocusIn(this)" onfocusout="inputBoxFocusOut(this)"/>
                             </div>
@@ -45,7 +45,7 @@
                             <div class="field"></div> -->
                         </form>
                         <form id="kc-totp-login-form" class="${properties.kcFormClass!} ui form pre-signin" action="${url.loginAction}" method="post">
-			                <input type="hidden" name="page_type" value="sms_otp_resend_page" />
+                            <input type="hidden" name="page_type" value="sms_otp_resend_page" />
                             <div class="field">
                                 <button onclick="otpClick(event,'Resend OTP', 'resend-OTP');javascript:makeDivUnclickable()" class="ui fluid submit button whiteButton" name="login" id="login" type="submit" value="${msg("doLogIn")}">${msg("doResendOTP")}</button>
                             </div>
@@ -75,6 +75,7 @@
     </div>
     <script type="text/javascript">
           function otpClick(e, param1, param2){
+						try {
           e.preventDefault()
           let obj = {
           EventDetails: {
@@ -91,7 +92,17 @@
           if (document.getElementById("kc-totp-login-form") && param1 === 'Resend OTP') {
             setTimeout("submitForm()", 1000); // set timout
           }
-        });
+        }).catch(error => {
+        // do something with error
+				if (document.getElementById("kc-totp-login-form") && param1 === 'Resend OTP') {
+            setTimeout("submitForm()", 1000); // set timout
+          }
+        })
+			} catch(error) {
+				if (document.getElementById("kc-totp-login-form") && param1 === 'Resend OTP') {
+            setTimeout("submitForm()", 1000); // set timout
+          }
+			}
       }
       function submitForm() { // submits form
         document.getElementById("kc-totp-login-form").submit();

@@ -285,10 +285,8 @@
             <script type="text/javascript">
               var slideIndex = 0;
               showSlides();
-              var param;
               function otpClick(e, param1, param2){
-                console.log(param1)
-                console.log(param2)
+                try {
                 e.preventDefault()
                 let obj = {
                 EventDetails: {
@@ -296,23 +294,36 @@
                   Name : param2
                 }
               }
-              param = param1
               const userdata = Object.assign(MainVisitorDetails, obj)
               fetch("https://track.plumb5.com/EventDetails/SaveEventDetails", {
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify( userdata)
               }).then(res => {
-
-              if(param1 === 'Login Button with OTP') {
-                setTimeout(document.getElementById("kc-form-login").submit(), 1000);
-              } else if(param1 === 'Login Button'){
-                setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
-              }
+                if(param1 === 'Login Button with OTP') {
+                  setTimeout(document.getElementById("kc-form-login").submit(), 1000);
+                } else if(param1 === 'Login Button'){
+                  setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
+                }
                 // if (document.getElementById("kc-form-login")) {
                 //   setTimeout("submitForm()", 1000); // set timout
                 // }
-              });
+              }).catch(error => {
+              // do something with error
+              if(param1 === 'Login Button with OTP') {
+                  setTimeout(document.getElementById("kc-form-login").submit(), 1000);
+                } else if(param1 === 'Login Button'){
+                  setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
+                }
+              })
+            } catch(error) {
+                // code to run if there are any problems
+                if(param1 === 'Login Button with OTP') {
+                  setTimeout(document.getElementById("kc-form-login").submit(), 1000);
+                } else if(param1 === 'Login Button'){
+                  setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
+                }
+              }
             }
             // function submitForm() { // submits form
             //   console.log(document.getElementById("kc-form-login"))
