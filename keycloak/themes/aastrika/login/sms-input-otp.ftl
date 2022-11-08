@@ -91,17 +91,26 @@
         }).then(res => {
           if (document.getElementById("kc-totp-login-form") && (param1 === 'Resend OTP' || param1 === 'Submit OTP')) {
             setTimeout("submitForm()", 1000); // set timout
-          }
+          } else if(param1 === 'WhatsApp'){
+						var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
+						window.open(url, '_blank').focus();
+					}
         }).catch(error => {
         // do something with error
 				if (document.getElementById("kc-totp-login-form") && (param1 === 'Resend OTP' || param1 === 'Submit OTP')) {
             setTimeout("submitForm()", 1000); // set timout
-          }
+          } else if(param1 === 'WhatsApp'){
+						var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
+						window.open(url, '_blank').focus();
+					}
         })
 			} catch(error) {
 				if (document.getElementById("kc-totp-login-form") && (param1 === 'Resend OTP' || param1 === 'Submit OTP')) {
             setTimeout("submitForm()", 1000); // set timout
-          }
+          } else if(param1 === 'WhatsApp'){
+						var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
+						window.open(url, '_blank').focus();
+					}
 			}
 			return true
       }
