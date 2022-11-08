@@ -227,14 +227,14 @@
                               <!-- <span> -->
                                 <!-- ${msg("noAccount")}  -->
                                 <a class="ui fluid button whiteButton"
-                                  href="${client.baseUrl}app/create-account" onclick="otpClick(event, 'Create Account', 'createAccount-loginOTP')" id="createAccount-help">${msg("registerHere")}</a>
+                                  href="${client.baseUrl}app/create-account" onclick="otpClick(event, 'Create Account', 'createAccount-loginOTP');return true;" id="createAccount-help">${msg("registerHere")}</a>
                               <!-- </span> -->
                               <span class="whatsApp">
                                 <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
                             </span>
                               <a class="ui fluid button greenButton"
                                 href="https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform"
-                                target="_blank" id="WhatsApp-loginOTP" onclick="otpClick(event, 'WhatsApp', 'WhatsApp-loginOTP')">Get Help on WhatsApp?</a>
+                                target="_blank" id="WhatsApp-loginOTP" onclick="otpClick(event, 'WhatsApp', 'WhatsApp-loginOTP');return true;">Get Help on WhatsApp?</a>
                             </div>
                           </div>
                           <div id="selfSingUp" class="hide">
