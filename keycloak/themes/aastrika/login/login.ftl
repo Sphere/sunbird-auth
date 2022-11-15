@@ -112,7 +112,7 @@
                           </#if>
                           </div>
                           <div class="field mt-10">
-                            <button id="login" class="ui fluid button blueButton" onclick="otpClick(event, 'Login Button', 'login')">${msg("doLogIn")}</button>
+                            <button id="login-username-password" class="ui fluid button blueButton" onclick="otpClick(event, 'Login Button', 'login-username-password')">${msg("doLogIn")}</button>
                           </div>
                           <div class="field or-container">
                             <div class="or-holder">
@@ -126,7 +126,7 @@
                               <!-- <span> -->
                                 <!-- ${msg("noAccount")} -->
                                 <a class="ui fluid button whiteButton"
-                                  href="${client.baseUrl}app/create-account" onclick="otpClick(event, 'Create Account', 'createAccount-loginOTP')" id="createAccount-help">${msg("registerHere")}</a>
+                                  href="${client.baseUrl}app/create-account" onclick="otpClick(event, 'Create Account', 'createAccount-loginOTP')" id="createAccount-loginOTP">${msg("registerHere")}</a>
                                   <span class="whatsApp">
                                     <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
                                 </span>
@@ -213,7 +213,7 @@
                           </a> -->
 
                           <div class="field">
-                            <button tabindex="0" name="login" id="kc-login" type="submit" class="ui fluid button blueButton" onclick="otpClick(event, 'Login Button with OTP', 'kc-login')">Get OTP</button>
+                            <button tabindex="0" name="otp-login" id="otp-login" type="submit" class="ui fluid button blueButton" onclick="otpClick(event, 'Login Button with OTP', 'otp-login')">Get OTP</button>
                           </div>
                           <div class="field or-container">
                             <div class="or-holder">
@@ -227,7 +227,7 @@
                               <!-- <span> -->
                                 <!-- ${msg("noAccount")}  -->
                                 <a class="ui fluid button whiteButton"
-                                  href="${client.baseUrl}app/create-account" onclick="return otpClick(event, 'Create Account', 'createAccount-loginOTP')" id="createAccount-help">${msg("registerHere")}</a>
+                                  href="${client.baseUrl}app/create-account" onclick="return otpClick(event, 'Create Account', 'createAccount-loginOTP')" id="createAccount-loginOTP">${msg("registerHere")}</a>
                               <!-- </span> -->
                               <span class="whatsApp">
                                 <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">

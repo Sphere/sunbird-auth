@@ -34,7 +34,7 @@
                                 <p style="text-align: right !important">OTP Expires in <span class="warnText">10 Minutes</span></p>
                             </div>
                             <div class="field mb-20">
-                                <button onclick="otpClick(event,'Submit OTP', 'submit-OTP');javascript:makeDivUnclickable()" class="ui fluid submit button blueButton" name="login" id="login" type="submit" value="${msg("doLogIn")}">${msg("doSubmit")}</button>
+                                <button onclick="otpClick(event,'Submit OTP', 'submit-OTP');javascript:makeDivUnclickable()" class="ui fluid submit button blueButton" name="submit-OTP" id="submit-OTP" type="submit" value="${msg("doLogIn")}">${msg("doSubmit")}</button>
                             </div>
                             <!-- <div class="field or-container">
                                 <div class="or-holder">
@@ -47,7 +47,7 @@
                         <form id="kc-totp-login-form" class="${properties.kcFormClass!} ui form pre-signin" action="${url.loginAction}" method="post">
                             <input type="hidden" name="page_type" value="sms_otp_resend_page" />
                             <div class="field">
-                                <button onclick="otpClick(event,'Resend OTP', 'resend-OTP');javascript:makeDivUnclickable()" class="ui fluid submit button whiteButton" name="login" id="login" type="submit" value="${msg("doLogIn")}">${msg("doResendOTP")}</button>
+                                <button onclick="otpClick(event,'Resend OTP', 'resend-OTP');javascript:makeDivUnclickable()" class="ui fluid submit button whiteButton" name="resend-OTP" id="resend-OTP" type="submit" value="${msg("doLogIn")}">${msg("doResendOTP")}</button>
                             </div>
                         </form>
                         <div class="field rel">
