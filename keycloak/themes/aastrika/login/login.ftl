@@ -106,9 +106,7 @@
                             <a id="fgtKeycloakFlow" class="ui right floated forgetPasswordLink hide" tabindex="1"
                               onclick="javascript:storeLocation(); javascript:makeDivUnclickable()"
                               href="${client.baseUrl}public/forgot-password?value=true">${msg("doForgotPassword")}</a>
-                            <div id="fgtPortalFlow" class="ui right floated forgetPasswordLink hide" tabindex="1"
-                              onclick="javascript:forgetPassword('/recover/identify/account');javascript:makeDivUnclickable()">
-                              ${msg("doForgotPassword")}</div>
+                           
                           </#if>
                           </div>
                           <div class="field mt-10">
@@ -238,38 +236,13 @@
                             </div>
                           </div>
                           <div id="selfSingUp" class="hide">
-                            <p class="or my-16 textCenter">OR</p>
+                           
                             <div class="field">
-                              <#if realm.password && social.providers??>
-                                <!--div id="kc-social-providers">
-                                                        <#list social.providers as p>
-                                                        <a href="${p.loginUrl}" id="zocial-${p.alias}" class="zocial ${p.providerId} ui fluid blue basic button textCenter">
-                                                        <i class="icon signInWithGoogle"></i>${msg("doSignIn")} ${msg("doSignWithGoogle")}
-                                                        </a>
-                                                        </#list>
-                                                    </div-->
-                              </#if>
-                              <button type="button" id="stateButton"
-                                class="sb-btn sb-btn-normal sb-btn-success width-100 mb-16" onclick="navigate('state')">
-                                ${msg("doSignWithState")}
-                              </button>
-                              <button type="button"
-                                class="sb-btn sb-btn-normal sb-btn-outline-primary width-100 d-flex flex-ai-center flex-jc-center"
-                                onclick="navigate('google')">
-                                <img class="signInWithGoogle" src="${url.resourcesPath}/img/google.png">
-                                ${msg("doLogIn")} ${msg("doSignWithGoogle")}
-                              </button>
+                             
+                              
+                             
                             </div>
-                            <#if realm.password && realm.registrationAllowed && !usernameEditDisabled??>
-                              <div id="kc-registration" class="field">
-                                <div class="ui content mt-20 signUpMsg">
-                                  ${msg("noAccount")} <span id="signup" tabindex="0" class="registerLink"
-                                    onclick=navigate('self')>${msg("registerHere")}</span>
-                                  <span>${msg("noAccount")} <a class="signUpLink"
-                                      href="${url.registrationUrl}">${msg("doRegister")}</a></span>
-                                </div>
-                              </div>
-                            </#if>
+                           
                           </div>
                       </div>
                       </form>
