@@ -15,7 +15,7 @@
                   <div class="ui column height-fix">
                     <div class="logo">
                       <a href="/public/home">
-                        <img alt="Logo" src="${url.resourcesPath}/img/aastar-logo.svg" width="120">
+                        <img alt="Logo" src="${url.resourcesPath}/img/sphere-new-logo.svg" width="120">
                       </a>
                     </div>
                     <div class="max-container">
