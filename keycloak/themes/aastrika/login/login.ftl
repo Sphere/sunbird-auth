@@ -307,13 +307,13 @@
                   },
                   "MainVisitorDetails": userInfo
                 }
-                fetch('https://track.plumb5.com/FormInfoDetails/SaveFormDetails'); // Second method: "POST",
-                method: "POST",
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify( obj3)
-              }).then(res => {
+                fetch('https://track.plumb5.com/FormInfoDetails/SaveFormDetails',{
+                  method: "POST",
+                  headers: {'Content-Type': 'application/json'},
+                  body: JSON.stringify( obj3)
+                }).then(res => {
                 console.log(res)
-            })
+                })
               
             }
             function submitForm() { // submits form
