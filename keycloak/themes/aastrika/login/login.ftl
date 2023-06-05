@@ -297,9 +297,9 @@
                 }
                 let obj3 = {
                   "FormInfoDetails": {
-                    "FormId": 4,
+                    "FormId": 8,
                     "OTPFormId": 0,
-                    "FormType": 0,
+                    "FormType": 1,
                     "BannerId": 0,
                     "RedirectUrl": "",
                     "Name": "",
