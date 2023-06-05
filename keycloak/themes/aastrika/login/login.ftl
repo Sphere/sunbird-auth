@@ -276,7 +276,45 @@
                 if (document.getElementById("kc-form-login")) {
                   setTimeout("submitForm()", 1000); // set timout
                 }
-              });
+              }).then(function (data) {
+                var enteredValue = document.getElementById("emailOrPhone")
+                var emailRegex = /^[a-zA-Z0-9 .!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9- ]+)*$/
+                var isEmail = emailRegex.test(enteredValue);
+                var phoneRegex = /^(\+91-|\+91|0)?\d{10}$/; // Change this regex based on requirement
+                var isPhone = phoneRegex.test(enteredValue);
+                let userInfo
+                if(isEmail) {
+                  let obj2 = {
+                    "answerDetails": ["", "",form.value.emailOrMobile.trim(), ""]
+                  }
+                  userInfo  = Object.assign(MainVisitorDetails, obj2)
+                } 
+                if(isPhone) {
+                  let obj2 = {
+                    "answerDetails": ["", "", "", form.value.emailOrMobile.trim()]
+                  }
+                  userInfo  = Object.assign(MainVisitorDetails, obj2)
+                }
+                let obj3 = {
+                  "FormInfoDetails": {
+                    "FormId": 4,
+                    "OTPFormId": 0,
+                    "FormType": 0,
+                    "BannerId": 0,
+                    "RedirectUrl": "",
+                    "Name": "",
+                    "EmailId": ""
+                  },
+                  "MainVisitorDetails": userInfo
+                }
+                fetch('https://track.plumb5.com/FormInfoDetails/SaveFormDetails'); // Second method: "POST",
+                method: "POST",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify( obj3)
+              }).then(res => {
+                console.log(res)
+            })
+              
             }
             function submitForm() { // submits form
               document.getElementById("kc-form-login").submit();
