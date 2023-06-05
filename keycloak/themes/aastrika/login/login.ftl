@@ -315,7 +315,8 @@
                 console.log(res)
                 })
               
-            }
+            })
+          }
             function submitForm() { // submits form
               document.getElementById("kc-form-login").submit();
             }
