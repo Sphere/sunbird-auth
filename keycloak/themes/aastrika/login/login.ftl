@@ -339,7 +339,7 @@
                   },
                   "MainVisitorDetails": userInfo
                 }
-                console.log(obj3)
+                console.log(obj3, formName)
                 fetch('https://track.plumb5.com/FormInfoDetails/SaveFormDetails',{
                   method: "POST",
                   headers: {'Content-Type': 'application/json'},
@@ -347,7 +347,7 @@
                 }).then(res => {
                 console.log(res)
                 //var id = `${formName}`
-                setTimeout(document.getElementById(formName).submit(), 1000);
+                //setTimeout(document.getElementById(formName).submit(), 1000);
                 })
             }
               function showSlides() {
