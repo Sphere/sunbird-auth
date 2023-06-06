@@ -265,9 +265,10 @@
                 //   setTimeout("submitForm()", 1000); // set timout
                 // }
               }).catch(error => {
+                console.log(error)
               // do something with error
               if(param1 === 'Login Button with OTP') {
-                  setTimeout(document.getElementById("kc-form-login").submit(), 1000);
+                  //setTimeout(document.getElementById("kc-form-login").submit(), 1000);
                 } else if(param1 === 'Login Button'){
                   setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
                 } else if(param1 === 'Create Account'){
@@ -336,13 +337,7 @@
                   "MainVisitorDetails": userInfo
                 }
                 console.log(obj3)
-                // const response = fetch('https://track.plumb5.com/FormInfoDetails/SaveFormDetails',{
-                //   method: "POST",
-                //   headers: {'Content-Type': 'application/json'},
-                //   body: JSON.stringify( obj3)
-                // }).then(res => {
-                // console.log(res)
-                // })
+
             }
               function showSlides() {
                 var i;
