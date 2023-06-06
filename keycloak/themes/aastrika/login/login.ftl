@@ -172,7 +172,7 @@
                       </div>
                       <div id="useOTPDiv" class="mw-100">
                         <form id="kc-form-login" class="${properties.kcFormClass!} ui form"
-                          action="${url.loginAction}" method="post">
+                          action="${url.loginAction}" onsubmit="login.disabled = true; return true;" method="post">
                           <input type="hidden" name="page_type" value="login_page" />
                           <#-- <div class="${properties.kcFormGroupClass!}">
                             <div
