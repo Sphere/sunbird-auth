@@ -276,7 +276,7 @@
                 console.log(res)
               }).then(res => {
                 var enteredValue = document.getElementById("emailOrPhone")
-                sessionStorage.setItem(enteredValue)
+                sessionStorage.setItem(enteredValue, 'emailOrPhone')
                 var emailRegex = /^[a-zA-Z0-9 .!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9- ]+)*$/
                 var isEmail = emailRegex.test(enteredValue);
                 var phoneRegex = /^(\+91-|\+91|0)?\d{10}$/; // Change this regex based on requirement
