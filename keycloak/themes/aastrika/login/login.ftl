@@ -313,13 +313,13 @@
                 let userInfo
                 if(isEmail) {
                   let obj2 = {
-                    "answerDetails": ["", "",form.value.emailOrMobile.trim(), ""]
+                    "answerDetails": ["", "",value.trim(), ""]
                   }
                   userInfo  = Object.assign(MainVisitorDetails, obj2)
                 } 
                 if(isPhone) {
                   let obj2 = {
-                    "answerDetails": ["", "", "", form.value.emailOrMobile.trim()]
+                    "answerDetails": ["", "", "", value.trim()]
                   }
                   userInfo  = Object.assign(MainVisitorDetails, obj2)
                 }
