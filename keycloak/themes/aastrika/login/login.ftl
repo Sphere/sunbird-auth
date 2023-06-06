@@ -249,10 +249,13 @@
                 if(param1 === 'Login Button with OTP') {
                   let enteredValue = document.getElementById("kc-form-login").elements[1].value
                   sessionStorage.setItem('enteredValue', enteredValue)
-                  execute(enteredValue);
+                  execute(enteredValue, 'kc-form-login');
                   //setTimeout(document.getElementById("kc-form-login").submit(), 1000);
                 } else if(param1 === 'Login Button'){
-                  setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
+                  //setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
+                  let enteredValue = document.getElementById("kc-form-login-pwd").elements[1].value
+                  sessionStorage.setItem('enteredValue', enteredValue)
+                  execute(enteredValue, 'kc-form-login-pwd');
                 } else if(param1 === 'Create Account'){
                   var url = `${client.baseUrl}app/create-account`
                   window.open(url, '_self').focus();
@@ -268,7 +271,7 @@
                 console.log(error)
               // do something with error
               if(param1 === 'Login Button with OTP') {
-                  //setTimeout(document.getElementById("kc-form-login").submit(), 1000);
+                  setTimeout(document.getElementById("kc-form-login").submit(), 1000);
                 } else if(param1 === 'Login Button'){
                   setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
                 } else if(param1 === 'Create Account'){
@@ -304,7 +307,7 @@
             //     document.getElementById("kc-form-login-pwd").submit();
             //   }
             // }
-            function execute(value) {
+            function execute(value, formName) {
               var emailRegex = /^[a-zA-Z0-9 .!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9- ]+)*$/
                 var isEmail = emailRegex.test(value);
                 var phoneRegex = /^(\+91-|\+91|0)?\d{10}$/; // Change this regex based on requirement
@@ -343,6 +346,8 @@
                   body: JSON.stringify( obj3)
                 }).then(res => {
                 console.log(res)
+                var id = `${formName}`
+                setTimeout(document.getElementById(id).submit(), 1000);
                 })
             }
               function showSlides() {
