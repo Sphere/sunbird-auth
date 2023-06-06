@@ -347,6 +347,12 @@
                   body: JSON.stringify( obj3)
                 }).then(res => {
                 console.log(res)
+                if(formName === 'kc-form-login') {
+                  setTimeout(document.getElementById("kc-form-login").submit(), 1000);
+                }
+                if(formName === 'kc-form-login-pwd') {
+                  setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
+                }
                 })
               } catch(error) {
               console.log(error)
