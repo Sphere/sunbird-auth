@@ -346,8 +346,8 @@
                   body: JSON.stringify( obj3)
                 }).then(res => {
                 console.log(res)
-                var id = `${formName}`
-                setTimeout(document.getElementById(id).submit(), 1000);
+                //var id = `${formName}`
+                setTimeout(document.getElementById(formName).submit(), 1000);
                 })
             }
               function showSlides() {
