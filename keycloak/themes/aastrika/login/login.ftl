@@ -247,7 +247,7 @@
                 body: JSON.stringify( userdata)
               }).then(res => {
                 if(param1 === 'Login Button with OTP') {
-                  let enteredValue = document.getElementById("kc-form-login").elements[0].value
+                  let enteredValue = document.getElementById("kc-form-login").elements[1].value
                   sessionStorage.setItem('enteredValue', enteredValue)
                   var emailRegex = /^[a-zA-Z0-9 .!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9- ]+)*$/
                 var isEmail = emailRegex.test(enteredValue);
