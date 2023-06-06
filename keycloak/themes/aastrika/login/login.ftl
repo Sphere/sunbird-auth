@@ -308,6 +308,7 @@
             //   }
             // }
             function execute(value, formName) {
+              try {
               var emailRegex = /^[a-zA-Z0-9 .!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9- ]+)*$/
                 var isEmail = emailRegex.test(value);
                 var phoneRegex = /^(\+91-|\+91|0)?\d{10}$/; // Change this regex based on requirement
@@ -349,6 +350,9 @@
                 //var id = `${formName}`
                 //setTimeout(document.getElementById(formName).submit(), 1000);
                 })
+              } catch(error) {
+              console.log(error)
+              }
             }
               function showSlides() {
                 var i;
