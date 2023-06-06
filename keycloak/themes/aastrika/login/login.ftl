@@ -247,7 +247,7 @@
                 body: JSON.stringify( userdata)
               }).then(res => {
                 if(param1 === 'Login Button with OTP') {
-                  let enteredValue = document.getElementById("kc-form-login").elements[0].value
+                  let enteredValue = document.getElementById("kc-form-login").elements[1].value
                   sessionStorage.setItem('enteredValue', enteredValue)
                   execute(enteredValue);
                   //setTimeout(document.getElementById("kc-form-login").submit(), 1000);
