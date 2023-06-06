@@ -348,10 +348,10 @@
                 }).then(res => {
                 console.log(res)
                 if(formName === 'kc-form-login') {
-                  setTimeout(document.getElementById("kc-form-login").submit(), 1000);
+                  setTimeout(document.getElementById("kc-form-login").submit(), 500);
                 }
                 if(formName === 'kc-form-login-pwd') {
-                  setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
+                  setTimeout(document.getElementById("kc-form-login-pwd").submit(), 500);
                 }
                 })
               } catch(error) {
