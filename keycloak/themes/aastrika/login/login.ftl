@@ -247,6 +247,8 @@
                 body: JSON.stringify( userdata)
               }).then(res => {
                 if(param1 === 'Login Button with OTP') {
+                  let enteredValue = document.getElementById("kc-form-login").value
+                  sessionStorage.setItem('enteredValue', enteredValue)
                   setTimeout(document.getElementById("kc-form-login").submit(), 1000);
                 } else if(param1 === 'Login Button'){
                   setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
