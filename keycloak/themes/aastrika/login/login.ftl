@@ -347,8 +347,6 @@
                   body: JSON.stringify( obj3)
                 }).then(res => {
                 console.log(res)
-                //var id = `${formName}`
-                //setTimeout(document.getElementById(formName).submit(), 1000);
                 })
               } catch(error) {
               console.log(error)
