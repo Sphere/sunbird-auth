@@ -92,29 +92,29 @@ public class PasswordAndOtpAuthenticator extends AbstractUsernameFormAuthenticat
 		String flagPage = getValue(context, Constants.FLAG_PAGE);
 		logger.info("OtpSmsFormAuthenticator::action:: " + flagPage);
 		switch (flagPage) {
-		case Constants.FLAG_OTP_PAGE:
-			authenticateOtp(context);
-			break;
-		case Constants.FLAG_OTP_RESEND_PAGE:
-			resendOtp(context);
-			break;
-		case Constants.FLAG_LOGIN_PAGE:
-			sendOtp(context, qParamMap.getFirst(Constants.REDIRECT_URI_KEY));
-			break;
-		case Constants.FLAG_LOGIN_WITH_PASS:
-			if (!validateForm(context, context.getHttpRequest().getDecodedFormParameters())) {
-				goErrorPage(context, "Invalid credentials!");
-			} else {
-				logger.info("Validation of username + password is successful... setting redirect_uri with "
-						+ qParamMap.getFirst(Constants.REDIRECT_URI_KEY));
-				context.getAuthenticationSession().setAuthNote(Details.REDIRECT_URI,
-						qParamMap.getFirst(Constants.REDIRECT_URI_KEY));
-				context.success();
-			}
-			break;
-		default:
-			authenticate(context);
-			break;
+			case Constants.FLAG_OTP_PAGE:
+				authenticateOtp(context);
+				break;
+			case Constants.FLAG_OTP_RESEND_PAGE:
+				resendOtp(context);
+				break;
+			case Constants.FLAG_LOGIN_PAGE:
+				sendOtp(context, qParamMap.getFirst(Constants.REDIRECT_URI_KEY));
+				break;
+			case Constants.FLAG_LOGIN_WITH_PASS:
+				if (!validateForm(context, context.getHttpRequest().getDecodedFormParameters())) {
+					goErrorPage(context, "Invalid credentials!");
+				} else {
+					logger.info("Validation of username + password is successful... setting redirect_uri with "
+							+ qParamMap.getFirst(Constants.REDIRECT_URI_KEY));
+					context.getAuthenticationSession().setAuthNote(Details.REDIRECT_URI,
+							qParamMap.getFirst(Constants.REDIRECT_URI_KEY));
+					context.success();
+				}
+				break;
+			default:
+				authenticate(context);
+				break;
 		}
 	}
 
@@ -257,21 +257,21 @@ public class PasswordAndOtpAuthenticator extends AbstractUsernameFormAuthenticat
 		boolean retValue = false;
 		String userNameType = isEmailOrMobileNumber(mobileNumber);
 		switch (userNameType) {
-		case Constants.PHONE:
-			AuthenticatorConfigModel configModel = context.getAuthenticatorConfig();
-			String smsProvider = null;
-			if (configModel.getConfig() != null) {
-				smsProvider = configModel.getConfig().get(KeycloakSmsAuthenticatorConstants.CONF_PRP_SMS_PROVIDER);
-			}
-			if (Constants.MSG91_PROVIDER.equalsIgnoreCase(smsProvider)) {
-				retValue = KeycloakSmsAuthenticatorUtil.send(mobileNumber, otp);
-			} else if (Constants.Free2SMS_PROVIDER.equalsIgnoreCase(smsProvider)) {
-				retValue = sendSmsViaFast2Sms(mobileNumber, otp);
-			}
-			break;
-		case Constants.EMAIL:
-			retValue = sendEmailViaSunbird(context, mobileNumber, otp);
-			break;
+			case Constants.PHONE:
+				AuthenticatorConfigModel configModel = context.getAuthenticatorConfig();
+				String smsProvider = null;
+				if (configModel.getConfig() != null) {
+					smsProvider = configModel.getConfig().get(KeycloakSmsAuthenticatorConstants.CONF_PRP_SMS_PROVIDER);
+				}
+				if (Constants.MSG91_PROVIDER.equalsIgnoreCase(smsProvider)) {
+					retValue = KeycloakSmsAuthenticatorUtil.send(mobileNumber, otp);
+				} else if (Constants.Free2SMS_PROVIDER.equalsIgnoreCase(smsProvider)) {
+					retValue = sendSmsViaFast2Sms(mobileNumber, otp);
+				}
+				break;
+			case Constants.EMAIL:
+				retValue = sendEmailViaSunbird(context, mobileNumber, otp);
+				break;
 		}
 		return retValue;
 	}
@@ -340,12 +340,12 @@ public class PasswordAndOtpAuthenticator extends AbstractUsernameFormAuthenticat
 		Map<String, Object> otpResponse = new HashMap<String, Object>();
 
 		otpResponse.put(Constants.RECIPIENT_EMAILS, Arrays.asList(userEmail));
-		otpResponse.put(Constants.SUBJECT, Constants.MAIL_SUBJECT_LOGIN);
+		otpResponse.put(Constants.SUBJECT, Constants.MAIL_SUBJECT);
 		otpResponse.put(Constants.REALM_NAME, context.getRealm().getDisplayName());
 		otpResponse.put(Constants.EMAIL_TEMPLATE_TYPE, System.getenv(Constants.LOGIN_OTP_EMAIL_TEMPLATE));
 		otpResponse.put(Constants.BODY, Constants.BODY);
 		otpResponse.put(Constants.OTP, smsCode);
-		
+
 		long ttl = KeycloakSmsAuthenticatorUtil.getConfigLong(context.getAuthenticatorConfig(),
 				KeycloakSmsAuthenticatorConstants.CONF_PRP_SMS_CODE_TTL, 5 * 60L);
 		otpResponse.put(Constants.TTL, ttl / 60);

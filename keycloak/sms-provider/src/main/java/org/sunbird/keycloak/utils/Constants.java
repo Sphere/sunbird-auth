@@ -34,7 +34,7 @@ public class Constants {
 	public static final String TTL = "ttl";
 	public static final String SUNBIRD_LMS_AUTHORIZATION = "sunbird_authorization";
 
-	public static final String MAIL_SUBJECT = "Reset password";
+	public static final String MAIL_SUBJECT = "OTP for login";
 	public static final String MAIL_SUBJECT_LOGIN = "OTP for login";
 	public static final String SUBJECT = "subject";
 	public static final String EMAIL_TEMPLATE_TYPE = "emailTemplateType";
