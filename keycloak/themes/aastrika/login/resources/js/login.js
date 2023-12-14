@@ -281,6 +281,18 @@ var viewPassword = function(previewButton){
 		previewButton.className = previewButton.className.replace("slash","");
   	}
 }
+var viewNewPassword = function(previewButton){
+	console.log('Show Password');
+
+	var newPassword = document.getElementById("password-confirm");
+  	if (newPassword.type === "password") {
+		newPassword.type = "text";
+		addClass(previewButton,"slash");
+  	} else {
+		newPassword.type = "password";
+		previewButton.className = previewButton.className.replace("slash","");
+  	}
+}
 var urlMap = {
 	google: '/google/auth',
 	state: '/sign-in/sso/select-org',

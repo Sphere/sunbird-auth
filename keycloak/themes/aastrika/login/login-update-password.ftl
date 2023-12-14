@@ -42,7 +42,12 @@
                                 <label id="password-confirmLabelPlaceholder" class="activeLabelColor hide" for="password-confirm">
                                     ${msg("passwordConfirm")}
                                 </label>
+                                <div class="ui search">
+                                    <div class="ui icon input">
                                 <input type="password" class="mt-8" onfocusin="inputBoxFocusIn(this)" onfocusout="inputBoxFocusOut(this)" id="password-confirm" name="password-confirm" autocomplete="off" />
+                                <i class="eye icon link" onclick="viewNewPassword(this)"></i>
+                                    </div>
+                                </div>
                             </div>
                             <div class="field">
                                 <button id="login" class="ui fluid button submit mt-40" onclick="javascript:makeDivUnclickable()">

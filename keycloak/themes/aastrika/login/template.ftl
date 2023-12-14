@@ -97,7 +97,7 @@
                         if(sessionTenant){
                             var imgSrc = "${url.resourcesPath}/img/tenants/"+sessionTenant+".png";
                         }else{
-                            var imgSrc = "${url.resourcesPath}/img/iGOT_Karmayogi_logo_with_karmayogi_bharat.png";
+                            var imgSrc = "${url.resourcesPath}/img/sphere-new-logo.svg";
                         }
 
                         var logoImg =  document.querySelector(".ui.header img");
@@ -105,7 +105,7 @@
                             logoImg.setAttribute('class','logo-image');
                             logoImg.setAttribute('alt',sessionTenant);
                             logoImg.src = imgSrc;
-                            logoImg.addEventListener("error", ()=>{ logoImg.onerror=null;logoImg.src='${url.resourcesPath}/img/iGOT_Karmayogi_logo_with_karmayogi_bharat.png'});
+                            logoImg.addEventListener("error", ()=>{ logoImg.onerror=null;logoImg.src='${url.resourcesPath}/img/img/sphere-new-logo.svg'});
                         }
 
                     </script>
