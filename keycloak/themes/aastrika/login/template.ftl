@@ -36,15 +36,6 @@
             <script src="${script}" type="text/javascript"></script>
         </#list>
     </#if>
-    <script type='text/javascript'>
-        (function () {
-          var p5 = document.createElement('script')
-          p5.type = 'text/javascript'
-          p5.src = 'https://src.plumb5.com/aastrika_org.js'
-          var p5s = document.getElementsByTagName('script')[0]
-          p5s.parentNode.insertBefore(p5, p5s)
-        })();
-      </script>
 </head>
 
 <body class="${properties.kcBodyClass!}">

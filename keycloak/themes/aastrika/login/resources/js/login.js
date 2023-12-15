@@ -260,6 +260,7 @@ function addClass(element,classname)
 {
 	var arr;
   	arr = element.className.split(" ");
+	console.log(arr)
   	if (arr.indexOf(classname) == -1) {
     	element.className += " " + classname;
 	}
@@ -273,6 +274,7 @@ var viewPassword = function(previewButton){
 	console.log('Show Password');
 
 	var newPassword = document.getElementById("password-new");
+	console.log(newPassword)
   	if (newPassword.type === "password") {
 		newPassword.type = "text";
 		addClass(previewButton,"slash");
