@@ -271,7 +271,7 @@ var redirectToLib = () => {
 };
 
 var viewPassword = function(previewButton){
-	console.log('Show Password');
+	console.log('Show Password1',  document.getElementById("password-new"));
 
 	var newPassword = document.getElementById("password-new");
 	console.log(newPassword)
