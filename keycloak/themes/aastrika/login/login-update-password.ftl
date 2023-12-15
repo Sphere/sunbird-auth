@@ -30,7 +30,7 @@
                                 <div class="ui search">
                                     <div class="ui icon input">
                                         <input class="" type="password" id="password-new" onfocusin="inputBoxFocusIn(this)" onfocusout="inputBoxFocusOut(this)" name="password-new" autocomplete="off" />    
-                                        <i class="eye icon link" onclick="viewPassword(this)"></i>
+                                        <i class="eye icon link slash" onclick="viewPassword(this)"></i>
                                         <!--i id="preview-hide" class="eye slash icon hide link"></i-->
                                     </div>
                                 </div>
