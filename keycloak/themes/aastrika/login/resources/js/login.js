@@ -8,14 +8,14 @@ window.onload = function(){
 	var isForgetPasswordAllow = getValueFromSession('version');
 	var renderingType = 'queryParams';
 	let url = document.baseURI
-	console.log(url)
+	console.log(url, '0000')
 	if(url.includes('app=Sphere')) {
 	  let ele = document.getElementById('createAccount-loginOTP')
 	  ele.classList.add("hide");
 	} else {
 	  ele.classList.remove("hide");
 	}
-	
+
 	if (!mergeaccountprocess) {
 		mergeaccountprocess = localStorage.getItem('mergeaccountprocess');
 		if (mergeaccountprocess === '1') {
@@ -234,6 +234,8 @@ var makeDivUnclickable = function() {
 };
 
 var inputBoxFocusIn = function(currentElement){
+	let url = document.baseURI
+	console.log(url, '002')
 	var autoMerge = getValueFromSession('automerge');
 	if (autoMerge === '1') {
 		return;
