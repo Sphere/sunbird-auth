@@ -525,6 +525,9 @@ input[type='password']::placeholder {
 .hide {
     display: none !important;
 }
+.show{
+    display: block !important;
+}
 
 i.icon.eye.slash:before {
     content: "\f070";

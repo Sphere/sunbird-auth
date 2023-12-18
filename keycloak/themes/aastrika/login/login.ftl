@@ -231,6 +231,14 @@
             <script type="text/javascript">
               var slideIndex = 0;
               showSlides();
+              let url = document.baseURI
+              console.log(url)
+              if(url.includes('app=Sphere')) {
+                let ele = document.getElementById('createAccount-loginOTP')
+                ele.classList.add("hide");
+              } else {
+                ele.classList.remove("hide");
+              }
               function otpClick(e, param1, param2){
                 try {
                 e.preventDefault()
