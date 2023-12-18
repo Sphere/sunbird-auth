@@ -38,8 +38,8 @@
                 </div>
                 
             </div>
-            <div class="ui raised shadow container segment fullpage-background-image login-section">
-                <div class="ui one column grid stackable">
+            <div class="ui raised shadow container segment fullpage-background-image login-section" style="width: 100% !important;">
+                <div class="ui one column grid stackable" style="width: inherit !important;">
                     <#--  <div class="ui column tablet only computer only"></div>  -->
                     <div class="ui column height-fix">
                         <div class="max-container mw-100">

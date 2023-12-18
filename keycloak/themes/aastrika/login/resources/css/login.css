@@ -658,7 +658,7 @@ h5,
 }
 
 .max-container {
-    max-width: 320px;
+    /* max-width: 320px; */
     /* display: flex !important; */
     flex-direction: column;
     justify-content: center;
