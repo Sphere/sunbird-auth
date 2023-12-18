@@ -45,7 +45,7 @@
                                 <div class="ui search">
                                     <div class="ui icon input">
                                 <input type="password" class="mt-8" onfocusin="inputBoxFocusIn(this)" onfocusout="inputBoxFocusOut(this)" id="password-confirm" name="password-confirm" autocomplete="off" />
-                                <i class="eye icon link" onclick="viewNewPassword(this)"></i>
+                                <i class="eye icon link slash" onclick="viewNewPassword(this)"></i>
                                     </div>
                                 </div>
                             </div>

@@ -24,7 +24,7 @@ body {
 }
 
 .custom-grid {
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     grid-template-columns: 1.3fr 1fr;
