@@ -10,7 +10,7 @@
                     <div class="logo" style="width: 320px; max-width:100%">
                         <!-- <img src="${url.resourcesPath}/img/dopt_logo.png" alt="Logo" style="width: inherit;"> -->
                     </div>
-                    <div class="img-container" style="width: 320px; max-width:100%">
+                    <!-- <div class="img-container" style="width: 320px; max-width:100%">
                         <div class="slideshow-container">
 
                             <div class="mySlides fade">
@@ -28,7 +28,7 @@
                                 <img alt="Slides" src="${url.resourcesPath}/img/card3.png">
                             </div>
 
-                        </div>
+                        </div> -->
                     </div>
                     <div class="dots-menu">
                         <label class="dot">*</label>
