@@ -60,7 +60,7 @@
                                             </script>
 
                                     <#elseif actionUri??>
-                                        <div class="ui text active centered inline large loader">Loading.. Please wa<p><a id="click-here-to-proceed" href="${actionUri}">${kcSanitize(msg("proceedWithAction"))?no_esc}</a></p>it..</div>
+                                        <div class="ui text active centered inline large loader" style="width: inherit !important;font-size: 13px !important;">Loading.. Please wait<p><a id="click-here-to-proceed" href="${actionUri}">${kcSanitize(msg("proceedWithAction"))?no_esc} it..</a></p></div>
                                         <div id="kc-info-message-hide" style="display:none">
                                             <p><a id="click-here-to-proceed" href="${actionUri}">${kcSanitize(msg("proceedWithAction"))?no_esc}</a></p>
                                             <script type="text/javascript">
