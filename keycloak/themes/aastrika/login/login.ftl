@@ -129,7 +129,7 @@
                                     <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
                                 </span>
                                   <a class="ui fluid button greenButton"
-                                  href="https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform"
+                                  href="https://wa.me/919632013414?text=Hi"
                                   target="_blank" id="WhatsApp-loginOTP" onclick="otpClick(event,'WhatsApp', 'WhatsApp-loginOTP')">Get Help on WhatsApp?</a>
                               <!-- </span> -->
                             </div>
@@ -205,7 +205,7 @@
                                 <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
                             </span>
                               <a class="ui fluid button greenButton"
-                                href="https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform"
+                                href="https://wa.me/919632013414?text=Hi"
                                 target="_blank" id="WhatsApp-loginOTP" onclick="return otpClick(event, 'WhatsApp', 'WhatsApp-loginOTP')">Get Help on WhatsApp?</a>
                             </div>
                           </div>
@@ -240,12 +240,12 @@
                   Name : param2
                 }
               }
-              const userdata = Object.assign(MainVisitorDetails, obj)
-              fetch("https://track.plumb5.com/EventDetails/SaveEventDetails", {
-                method: "POST",
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify( userdata)
-              }).then(res => {
+              // const userdata = Object.assign(MainVisitorDetails, obj)
+              // fetch("https://track.plumb5.com/EventDetails/SaveEventDetails", {
+              //   method: "POST",
+              //   headers: {'Content-Type': 'application/json'},
+              //   body: JSON.stringify( userdata)
+              // }).then(res => {
                 if(param1 === 'Login Button with OTP') {
                   let enteredValue = document.getElementById("kc-form-login").elements[1].value
                   sessionStorage.setItem('enteredValue', enteredValue)
@@ -260,28 +260,28 @@
                   var url = `${client.baseUrl}app/create-account`
                   window.open(url, '_self').focus();
                 } else if(param1 === 'WhatsApp'){
-                  var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
+                  var url = `https://wa.me/919632013414?text=Hi`
                   window.open(url, '_blank').focus();
                 }
 
                 // if (document.getElementById("kc-form-login")) {
                 //   setTimeout("submitForm()", 1000); // set timout
                 // }
-              }).catch(error => {
+              //}).catch(error => {
                 console.log(error)
               // do something with error
-              if(param1 === 'Login Button with OTP') {
-                  setTimeout(document.getElementById("kc-form-login").submit(), 1000);
-                } else if(param1 === 'Login Button'){
-                  setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
-                } else if(param1 === 'Create Account'){
-                  var url = `${client.baseUrl}app/create-account`
-                  window.open(url, '_self').focus();
-                } else if(param1 === 'WhatsApp'){
-                  var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
-                  window.open(url, '_blank').focus();
-                }
-              })
+              // if(param1 === 'Login Button with OTP') {
+              //     setTimeout(document.getElementById("kc-form-login").submit(), 1000);
+              //   } else if(param1 === 'Login Button'){
+              //     setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
+              //   } else if(param1 === 'Create Account'){
+              //     var url = `${client.baseUrl}app/create-account`
+              //     window.open(url, '_self').focus();
+              //   } else if(param1 === 'WhatsApp'){
+              //     var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
+              //     window.open(url, '_blank').focus();
+              //   }
+              //})
             } catch(error) {
                 // code to run if there are any problems
                 if(param1 === 'Login Button with OTP') {
@@ -292,7 +292,7 @@
                   var url = `${client.baseUrl}app/create-account`
                   window.open(url, '_self').focus();
                 } else if(param1 === 'WhatsApp'){
-                  var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
+                  var url = `https://wa.me/919632013414?text=Hi`
                   window.open(url, '_blank').focus();
                 }
               }
@@ -341,11 +341,11 @@
                   "MainVisitorDetails": userInfo
                 }
                 console.log(obj3, formName)
-                fetch('https://track.plumb5.com/FormInfoDetails/SaveFormDetails',{
-                  method: "POST",
-                  headers: {'Content-Type': 'application/json'},
-                  body: JSON.stringify( obj3)
-                }).then(res => {
+                // fetch('https://track.plumb5.com/FormInfoDetails/SaveFormDetails',{
+                //   method: "POST",
+                //   headers: {'Content-Type': 'application/json'},
+                //   body: JSON.stringify( obj3)
+                // }).then(res => {
                 console.log(res)
                 if(formName === 'kc-form-login') {
                   setTimeout(document.getElementById("kc-form-login").submit(), 500);
@@ -353,7 +353,7 @@
                 if(formName === 'kc-form-login-pwd') {
                   setTimeout(document.getElementById("kc-form-login-pwd").submit(), 500);
                 }
-                })
+                //})
               } catch(error) {
               console.log(error)
               }

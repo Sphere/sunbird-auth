@@ -54,8 +54,8 @@
                             <span class="whatsApp-otp">
                             <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
                         </span>
-                            <a class="ui fluid button greenButton"
-                            href="https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform"
+                            <a class="ui fluid button greenButton"                           
+                            href="https://wa.me/919632013414?text=Hi"
                             target="_blank" id="WhatsApp-loginOTP" onclick="return otpClick(event,'WhatsApp', 'WhatsApp-loginOTP')">Get Help on WhatsApp?</a>
                         </div>
                         <#if client?? && client.baseUrl?has_content>
@@ -84,31 +84,32 @@
           }
         }
         const userdata = Object.assign(MainVisitorDetails, obj)
-        fetch("https://track.plumb5.com/EventDetails/SaveEventDetails", {
-          method: "POST",
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify( userdata)
-        }).then(res => {
+        console.log(userdata)
+        // fetch("https://track.plumb5.com/EventDetails/SaveEventDetails", {
+        //   method: "POST",
+        //   headers: {'Content-Type': 'application/json'},
+        //   body: JSON.stringify( userdata)
+        // }).then(res => {
           if (document.getElementById("kc-totp-login-form") && (param1 === 'Resend OTP' || param1 === 'Submit OTP')) {
-            setTimeout("submitForm()", 1000); // set timout
+            setTimeout("submitForm()", 500); // set timout
           } else if(param1 === 'WhatsApp'){
-						var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
+						var url = `https://wa.me/919632013414?text=Hi`
 						window.open(url, '_blank').focus();
 					}
-        }).catch(error => {
+        //}).catch(error => {
         // do something with error
-				if (document.getElementById("kc-totp-login-form") && (param1 === 'Resend OTP' || param1 === 'Submit OTP')) {
-            setTimeout("submitForm()", 1000); // set timout
-          } else if(param1 === 'WhatsApp'){
-						var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
-						window.open(url, '_blank').focus();
-					}
-        })
+		// 		if (document.getElementById("kc-totp-login-form") && (param1 === 'Resend OTP' || param1 === 'Submit OTP')) {
+        //     setTimeout("submitForm()", 1000); // set timout
+        //   } else if(param1 === 'WhatsApp'){
+		// 				var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
+		// 				window.open(url, '_blank').focus();
+		// 			}
+        //})
 			} catch(error) {
 				if (document.getElementById("kc-totp-login-form") && (param1 === 'Resend OTP' || param1 === 'Submit OTP')) {
             setTimeout("submitForm()", 1000); // set timout
           } else if(param1 === 'WhatsApp'){
-						var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
+						var url = `https://wa.me/919632013414?text=Hi`
 						window.open(url, '_blank').focus();
 					}
 			}

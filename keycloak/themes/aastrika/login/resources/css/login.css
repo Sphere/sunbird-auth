@@ -24,7 +24,8 @@ body {
 }
 
 .custom-grid {
-    display: grid;
+    display: flex;
+    justify-content: center;
     align-items: center;
     grid-template-columns: 1.3fr 1fr;
     /* grid-gap: 10rem; */
@@ -58,6 +59,9 @@ body {
     align-items: center;
     box-shadow: none !important;
     padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
