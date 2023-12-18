@@ -729,7 +729,7 @@ img {
     margin-top: 15px;
     }
     .max-container {
-        max-width: 318px;
+        width: 100%;
     }
     .custom-wrapper .custom-grid .left-box {
         display: none !important;
