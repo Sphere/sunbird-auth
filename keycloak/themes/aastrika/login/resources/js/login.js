@@ -9,19 +9,31 @@ window.onload = function(){
 	var renderingType = 'queryParams';
 	let url = document.baseURI
 	console.log(url, '0000', url.includes('app=Sphere'))
-	let ele = document.getElementById('createAccount-loginOTP')
+	//let ele = document.getElementById('createAccount-loginOTP')
 	let ele1 =  document.querySelectorAll("#createAccount-loginOTP");
 	let orId = document.querySelectorAll("#or-holder");
 	console.log(ele1, 'ele1', orId)
 	if(url.includes('app=Ekshamata')) {
 	 console.log('ele') 
+	 for (let i = 0; i < ele1.length; i++) {
+		ele1[i].style.display = "none";
+	  }
+	  for (let i = 0; i < orId.length; i++) {
+		orId[i].style.display = "none";
+	  }
 	//   ele.style.display = 'none';
 	//    ele.classList.add("hide");
-	orId.classList.add('hide');
-	   ele1.classList.add('hide');
+	//orId.classList.add('hide');
+	  // ele1.classList.add('hide');
 	} else {
-		orId.classList.add('block');
-		ele1.classList.add('block');
+		for (let i = 0; i < ele1.length; i++) {
+			ele1[i].style.display = "block";
+		  }
+		  for (let i = 0; i < orId.length; i++) {
+			orId[i].style.display = "block";
+		  }
+		// orId.classList.add('block');
+		// ele1.classList.add('block');
 		//ele.style.display = 'block';
 	}
 
