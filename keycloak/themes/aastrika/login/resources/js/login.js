@@ -9,11 +9,15 @@ window.onload = function(){
 	var renderingType = 'queryParams';
 	let url = document.baseURI
 	console.log(url, '0000', url.includes('app=Sphere'))
+	let ele = document.getElementById('createAccount-loginOTP')
+	var ele1 =  document.querySelector("#createAccount-loginOTP");
+	console.log(ele1, 'ele1')
 	if(url.includes('app=Sphere')) {
-	  let ele = document.getElementById('createAccount-loginOTP')
-	 console.log(ele, 'ele') 
+
+	 console.log('ele') 
 	  ele.style.display = 'none';
-	  ele.classList.add("hide");
+	   ele.classList.add("hide");
+	   ele1.classList.add('hide');
 	} else {
 		ele.style.display = 'block';
 	}
