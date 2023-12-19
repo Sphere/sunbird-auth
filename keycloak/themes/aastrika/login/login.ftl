@@ -103,7 +103,7 @@
                           </div>
                           <div>
                             <#if realm.resetPasswordAllowed>
-                            <a id="fgtKeycloakFlow" class="ui right floated forgetPasswordLink hide" tabindex="1"
+                            <a id="fgtKeycloakFlow" class="ui right floated forgetPasswordLink" tabindex="1"
                               onclick="javascript:storeLocation(); javascript:makeDivUnclickable()"
                               href="${client.baseUrl}public/forgot-password?value=true">${msg("doForgotPassword")}</a>
                             
