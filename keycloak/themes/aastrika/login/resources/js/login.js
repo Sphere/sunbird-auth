@@ -10,16 +10,19 @@ window.onload = function(){
 	let url = document.baseURI
 	console.log(url, '0000', url.includes('app=Sphere'))
 	let ele = document.getElementById('createAccount-loginOTP')
-	var ele1 =  document.querySelectorAll("#createAccount-loginOTP");
-	console.log(ele1, 'ele1')
-	if(url.includes('app=Sphere')) {
-
+	let ele1 =  document.querySelectorAll("#createAccount-loginOTP");
+	let orId = document.querySelectorAll("#or-holder");
+	console.log(ele1, 'ele1', orId)
+	if(url.includes('app=Ekshamata')) {
 	 console.log('ele') 
 	//   ele.style.display = 'none';
 	//    ele.classList.add("hide");
+	orId.classList.add('hide');
 	   ele1.classList.add('hide');
 	} else {
-		ele.style.display = 'block';
+		orId.classList.add('block');
+		ele1.classList.add('block');
+		//ele.style.display = 'block';
 	}
 
 	if (!mergeaccountprocess) {

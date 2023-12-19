@@ -113,7 +113,7 @@
                             <button id="login-username-password" class="ui fluid button blueButton" onclick="otpClick(event, 'Login Button', 'login-username-password')">${msg("doLogIn")}</button>
                           </div>
                           <div class="field or-container">
-                            <div class="or-holder">
+                            <div class="or-holder" id="or-holder">
                               <span class=""></span>
                               <span class="">OR</span>
                             </div>
@@ -188,7 +188,7 @@
                             <button tabindex="0" name="otp-login" id="otp-login" type="submit" class="ui fluid button blueButton" onclick="otpClick(event, 'Login Button with OTP', 'otp-login')">Get OTP</button>
                           </div>
                           <div class="field or-container">
-                            <div class="or-holder">
+                            <div class="or-holder" id="or-holder">
                               <span class=""></span>
                               <span class="">OR</span>
                             </div>
