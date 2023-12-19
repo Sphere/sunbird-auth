@@ -8,12 +8,14 @@ window.onload = function(){
 	var isForgetPasswordAllow = getValueFromSession('version');
 	var renderingType = 'queryParams';
 	let url = document.baseURI
-	console.log(url, '0000')
+	console.log(url, '0000', url.includes('app=Sphere'))
 	if(url.includes('app=Sphere')) {
 	  let ele = document.getElementById('createAccount-loginOTP')
+	 console.log(ele, 'ele') 
+	  ele.style.display = 'none';
 	  ele.classList.add("hide");
 	} else {
-	  ele.classList.remove("hide");
+		ele.style.display = 'block';
 	}
 
 	if (!mergeaccountprocess) {
