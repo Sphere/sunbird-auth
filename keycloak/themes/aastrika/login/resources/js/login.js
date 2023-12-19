@@ -31,6 +31,7 @@ window.onload = function(){
 		  }
 		  for (let i = 0; i < orId.length; i++) {
 			orId[i].style.display = "block";
+			orId[i].style.textAlign = "center";
 		  }
 		// orId.classList.add('block');
 		// ele1.classList.add('block');
