@@ -13,6 +13,8 @@ window.onload = function(){
 	let ele1 =  document.querySelectorAll("#createAccount-loginOTP");
 	let orId = document.querySelectorAll("#or-holder");
 	let wId = document.querySelectorAll("#WhatsApp-loginOTP");
+	let a1id = document.querySelectorAll("#sphere-anchor");
+	let a2id = document.querySelectorAll("#otp-anchor");
 	console.log(ele1, 'ele1', orId, wId)
 	if(url.includes('app=Ekshamata')) {
 	 console.log('ele') 
@@ -30,6 +32,13 @@ window.onload = function(){
 	//    ele.classList.add("hide");
 	//orId.classList.add('hide');
 	  // ele1.classList.add('hide');
+	} else if(url.includes('app=Sphere')) {
+		for (let i = 0; i < a1id.length; i++) {
+			a1id[i].style.pointerEevents = "none";
+		  }
+		  for (let i = 0; i < a2id.length; i++) {
+			a2id[i].style.pointerEevents = "none";
+		  }
 	} else {
 		for (let i = 0; i < ele1.length; i++) {
 			ele1[i].style.display = "block";

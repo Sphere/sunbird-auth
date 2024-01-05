@@ -14,7 +14,7 @@
                   </div> -->
                   <div class="ui column height-fix">
                     <div class="logo">
-                      <a href="/public/home">
+                      <a id="sphere-anchor" href="/public/home">
                         <img alt="Logo" src="${url.resourcesPath}/img/sphere-new-logo.svg" width="120">
                       </a>
                     </div>
@@ -50,7 +50,7 @@
                         </div>
                       </div>
                       <div id="usePasswordDiv" class="mw-100" style="display:none">
-                        <form id="kc-form-login-pwd" onsubmit="login.disabled = true; return true;" class="ui form"
+                        <form id="kc-form-login-pwd" autocomplete="off" onsubmit="login.disabled = true; return true;" class="ui form"
                           method="POST" action="${url.loginAction}">
                           <input type="hidden" name="page_type" value="login_with_pass" />
                           <div class="field">
