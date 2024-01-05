@@ -8,11 +8,12 @@ window.onload = function(){
 	var isForgetPasswordAllow = getValueFromSession('version');
 	var renderingType = 'queryParams';
 	let url = document.baseURI
-	console.log(url, '0000', url.includes('app=Sphere'))
+	console.log(url, '0000')
 	//let ele = document.getElementById('createAccount-loginOTP')
 	let ele1 =  document.querySelectorAll("#createAccount-loginOTP");
 	let orId = document.querySelectorAll("#or-holder");
-	console.log(ele1, 'ele1', orId)
+	let wId = document.querySelectorAll("#WhatsApp-loginOTP");
+	console.log(ele1, 'ele1', orId, wId)
 	if(url.includes('app=Ekshamata')) {
 	 console.log('ele') 
 	 for (let i = 0; i < ele1.length; i++) {
@@ -21,6 +22,10 @@ window.onload = function(){
 	  for (let i = 0; i < orId.length; i++) {
 		orId[i].style.display = "none";
 	  }
+	  for (let i = 0; i < wId.length; i++) {
+		wId[i].style.display = "none";
+	  }
+	  
 	//   ele.style.display = 'none';
 	//    ele.classList.add("hide");
 	//orId.classList.add('hide');
@@ -32,6 +37,9 @@ window.onload = function(){
 		  for (let i = 0; i < orId.length; i++) {
 			orId[i].style.display = "block";
 			orId[i].style.textAlign = "center";
+		  }
+		  for (let i = 0; i < wId.length; i++) {
+			wId[i].style.display = "block";
 		  }
 		// orId.classList.add('block');
 		// ele1.classList.add('block');
@@ -257,7 +265,6 @@ var makeDivUnclickable = function() {
 
 var inputBoxFocusIn = function(currentElement){
 	let url = document.baseURI
-	console.log(url, '002')
 	var autoMerge = getValueFromSession('automerge');
 	if (autoMerge === '1') {
 		return;
@@ -293,7 +300,6 @@ function addClass(element,classname)
 {
 	var arr;
   	arr = element.className.split(" ");
-	console.log(arr)
   	if (arr.indexOf(classname) == -1) {
     	element.className += " " + classname;
 	}
@@ -304,10 +310,7 @@ var redirectToLib = () => {
 };
 
 var viewPassword = function(previewButton){
-	console.log('Show Password1',  document.getElementById("password-new"));
-
 	var newPassword = document.getElementById("password-new");
-	console.log(newPassword)
   	if (newPassword.type === "password") {
 		newPassword.type = "text";
 		addClass(previewButton,"slash");
@@ -317,8 +320,6 @@ var viewPassword = function(previewButton){
   	}
 }
 var viewNewPassword = function(previewButton){
-	console.log('Show Password');
-
 	var newPassword = document.getElementById("password-confirm");
   	if (newPassword.type === "password") {
 		newPassword.type = "text";
