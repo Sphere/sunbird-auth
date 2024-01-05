@@ -10,7 +10,7 @@
                     <img alt="Logo" src="${url.resourcesPath}/img/aastar-logo.svg" width="120">
                     <div class="max-container">
                         <div class="logo">
-                            <a href="/public/home">
+                            <a id="otp-anchor" href="/public/home">
                             <img alt="Logo" src="${url.resourcesPath}/img/SMS.png" width="100%">
                             </a>
                           </div>
