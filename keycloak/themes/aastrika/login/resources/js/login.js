@@ -8,6 +8,7 @@ window.onload = function(){
 	var isForgetPasswordAllow = getValueFromSession('version');
 	var renderingType = 'queryParams';
 	let url = document.baseURI
+	sessionStorage.setItem('url',url)
 	console.log(url, '0000')
 	//let ele = document.getElementById('createAccount-loginOTP')
 	let ele1 =  document.querySelectorAll("#createAccount-loginOTP");
@@ -18,7 +19,7 @@ window.onload = function(){
 	let a3id = document.querySelectorAll("#logoRedirect");
 	let a4id = document.querySelectorAll("#backToLogin");
 	let a5id = document.querySelectorAll("#whatsApp");
-	console.log(ele1, 'ele1', orId.length, wId.length, a3id.length, a4id, 'ids')
+	console.log(ele1.length, 'ele1', orId.length, wId.length, a3id.length, a4id, 'ids')
 	if(url.includes('app=Ekshamata')) {
 	 console.log('ele') 
 	 for (let i = 0; i < ele1.length; i++) {
