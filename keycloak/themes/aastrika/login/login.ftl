@@ -50,7 +50,7 @@
                         </div>
                       </div>
                       <div id="usePasswordDiv" class="mw-100" style="display:none">
-                        <form id="kc-form-login-pwd" autocomplete="off" onsubmit="login.disabled = true; return true;" class="ui form"
+                        <form id="kc-form-login-pwd" onsubmit="login.disabled = true; return true;" class="ui form"
                           method="POST" action="${url.loginAction}">
                           <input type="hidden" name="page_type" value="login_with_pass" />
                           <div class="field">
@@ -87,8 +87,8 @@
                               </label>
                             </div>
                             <input placeholder="${msg('passwordPlaceholder')}" class=" mt-8" id="password"
-                              onfocusin="inputBoxFocusIn(this)" onfocusout="inputBoxFocusOut(this)" name="password"
-                              type="password" autocomplete="off" />
+                              onfocusin="inputBoxFocusIn(this)" onfocusout="inputBoxFocusOut(this)" name="password" autocomplete = "new-password"
+                              type="password"  />
                             <span class="ui text error hide"
                               id="inCorrectPasswordError">${msg("inCorrectPasswordError")}</span>
                           </div>
