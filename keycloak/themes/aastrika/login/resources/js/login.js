@@ -8,8 +8,14 @@ window.onload = function(){
 	var isForgetPasswordAllow = getValueFromSession('version');
 	var renderingType = 'queryParams';
 	let url = document.baseURI
-	sessionStorage.setItem('url',url)
+
 	console.log(url, '0000')
+	if(url.includes('app=Ekshamata') || url.includes('app=Sphere')){
+		sessionStorage.removeItem('url')		
+		if(url.includes('&client_id=android')) {
+			sessionStorage.setItem('url',url)
+		}
+	}
 	//let ele = document.getElementById('createAccount-loginOTP')
 	let ele1 =  document.querySelectorAll("#createAccount-loginOTP");
 	let orId = document.querySelectorAll("#or-holder");
@@ -18,9 +24,10 @@ window.onload = function(){
 	let a2id = document.querySelectorAll("#otp-anchor");
 	let a3id = document.querySelectorAll("#logoRedirect");
 	let a4id = document.querySelectorAll("#backToLogin");
-	let a5id = document.querySelectorAll("#whatsApp");
-	console.log(ele1.length, 'ele1', orId.length, wId.length, a3id.length, a4id, 'ids')
-	if(url.includes('app=Ekshamata')) {
+	let a5id = document.querySelectorAll(".whatsApp");
+  let urlCheck = sessionStorage.getItem('url')
+	console.log(ele1.length, 'ele1', orId.length, wId.length, a3id.length, a4id.length, a5id.length, 'ids')
+	if(url.includes('app=Ekshamata') || urlCheck.includes('app=Ekshamata')) {
 	 console.log('ele') 
 	 for (let i = 0; i < ele1.length; i++) {
 		ele1[i].style.display = "none";
@@ -39,7 +46,7 @@ window.onload = function(){
 	//    ele.classList.add("hide");
 	//orId.classList.add('hide');
 	  // ele1.classList.add('hide');
-	} else if(url.includes('app=Sphere')) {
+	} else if(url.includes('app=Sphere') || urlCheck.includes('app=Sphere')) {
 		for (let i = 0; i < a1id.length; i++) {
 			a1id[i].setAttribute("class","pointer-eOff");
 		  }
