@@ -15,11 +15,17 @@ window.onload = function(){
 	let wId = document.querySelectorAll("#WhatsApp-loginOTP");
 	let a1id = document.querySelectorAll("#sphere-anchor");
 	let a2id = document.querySelectorAll("#otp-anchor");
-	console.log(ele1, 'ele1', orId, wId)
+	let a3id = document.querySelectorAll("#logoRedirect");
+	let a4id = document.querySelectorAll("#backToLogin");
+	let a5id = document.querySelectorAll("#whatsApp");
+	console.log(ele1, 'ele1', orId.length, wId.length, a3id.length, a4id, 'ids')
 	if(url.includes('app=Ekshamata')) {
 	 console.log('ele') 
 	 for (let i = 0; i < ele1.length; i++) {
 		ele1[i].style.display = "none";
+	  }
+	  for (let i = 0; i < a5id.length; i++) {
+		a5id[i].style.display = "none";
 	  }
 	  for (let i = 0; i < orId.length; i++) {
 		orId[i].style.display = "none";
@@ -34,10 +40,16 @@ window.onload = function(){
 	  // ele1.classList.add('hide');
 	} else if(url.includes('app=Sphere')) {
 		for (let i = 0; i < a1id.length; i++) {
-			a1id[i].style.pointerEevents = "none";
+			a1id[i].setAttribute("class","pointer-eOff");
 		  }
 		  for (let i = 0; i < a2id.length; i++) {
-			a2id[i].style.pointerEevents = "none";
+			a2id[i].setAttribute("class","pointer-eOff");
+		  }
+		  for (let i = 0; i < a3id.length; i++) {
+			a3id[i].setAttribute("class","pointer-eOff");
+		  }
+		  for (let i = 0; i < a4id.length; i++) {
+			a4id[i].setAttribute("class","pointer-eOff");
 		  }
 	} else {
 		for (let i = 0; i < ele1.length; i++) {

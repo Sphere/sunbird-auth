@@ -7,7 +7,7 @@
         <div class="ui raised shadow container segment fullpage-background-image">
             <div class="ui one column grid stackable">
                 <div class="ui column height-fix">
-                    <img alt="Logo" src="${url.resourcesPath}/img/aastar-logo.svg" width="120">
+                    <img alt="Logo" id="logoRedirect" src="${url.resourcesPath}/img/aastar-logo.svg" width="120">
                     <div class="max-container">
                         <div class="logo">
                             <a id="otp-anchor" href="/public/home">
