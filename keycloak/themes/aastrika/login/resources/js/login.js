@@ -29,6 +29,10 @@ window.onload = function(){
 	console.log(ele1.length, 'ele1', orId.length, wId.length, a3id.length, a4id.length, a5id.length, 'ids')
 	if(url.includes('app=Ekshamata') || urlCheck.includes('app=Ekshamata')) {
 	 console.log('ele') 
+   for (let i = 0; i < a1id.length; i++) {
+    a1id[i].setAttribute("class","pointer-eOff");
+    }
+
 	 for (let i = 0; i < ele1.length; i++) {
 		ele1[i].style.display = "none";
 	  }
@@ -41,7 +45,15 @@ window.onload = function(){
 	  for (let i = 0; i < wId.length; i++) {
 		wId[i].style.display = "none";
 	  }
-	  
+    for (let i = 0; i < a2id.length; i++) {
+			a2id[i].setAttribute("class","pointer-eOff");
+		  }
+		  for (let i = 0; i < a3id.length; i++) {
+			a3id[i].setAttribute("class","pointer-eOff");
+		  }
+      for (let i = 0; i < a4id.length; i++) {
+        a4id[i].setAttribute("class","pointer-eOff");
+        }
 	//   ele.style.display = 'none';
 	//    ele.classList.add("hide");
 	//orId.classList.add('hide');
