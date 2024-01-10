@@ -87,7 +87,7 @@
                               </label>
                             </div>
                             <input placeholder="${msg('passwordPlaceholder')}" class=" mt-8" id="password"
-                              onfocusin="inputBoxFocusIn(this)" onfocusout="inputBoxFocusOut(this)" name="password"
+                              onfocusin="this.placeholder=''" onfocusout="this.placeholder='password'" name="password"
                               autocomplete="new-password" type="password" />
                             <span class="ui text error hide"
                               id="inCorrectPasswordError">${msg("inCorrectPasswordError")}</span>
