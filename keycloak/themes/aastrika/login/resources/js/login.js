@@ -25,6 +25,7 @@ window.onload = function(){
 	let a3id = document.querySelectorAll("#logoRedirect");
 	let a4id = document.querySelectorAll("#backToApplication");
 	let a5id = document.querySelectorAll(".whatsApp");
+  let a6id = document.querySelectorAll(".whatsApp-otp")
   let urlCheck = sessionStorage.getItem('url')
 	console.log(ele1.length, 'ele1', orId.length, wId.length, a3id.length, a4id.length, a5id.length, 'ids')
 	if(url.includes('app=Ekshamata') || urlCheck.includes('app=Ekshamata')) {
@@ -54,6 +55,9 @@ window.onload = function(){
       for (let i = 0; i < a4id.length; i++) {
         a4id[i].setAttribute("class","pointer-eOff");
         }
+        for (let i = 0; i < a6id.length; i++) {
+          a6id[i].style.display = "none";
+          }
 	//   ele.style.display = 'none';
 	//    ele.classList.add("hide");
 	//orId.classList.add('hide');
