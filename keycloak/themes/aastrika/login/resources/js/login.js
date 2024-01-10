@@ -12,9 +12,9 @@ window.onload = function(){
 	console.log(url, '0000')
 	if(url.includes('app=Ekshamata') || url.includes('app=Sphere')){
 		sessionStorage.removeItem('url')		
-		if(url.includes('&client_id=android')) {
+		//if(url.includes('&client_id=android')) {
 			sessionStorage.setItem('url',url)
-		}
+		//}
 	}
 	//let ele = document.getElementById('createAccount-loginOTP')
 	let ele1 =  document.querySelectorAll("#createAccount-loginOTP");
@@ -23,7 +23,7 @@ window.onload = function(){
 	let a1id = document.querySelectorAll("#sphere-anchor");
 	let a2id = document.querySelectorAll("#otp-anchor");
 	let a3id = document.querySelectorAll("#logoRedirect");
-	let a4id = document.querySelectorAll("#backToLogin");
+	let a4id = document.querySelectorAll("#backToApplication");
 	let a5id = document.querySelectorAll(".whatsApp");
   let urlCheck = sessionStorage.getItem('url')
 	console.log(ele1.length, 'ele1', orId.length, wId.length, a3id.length, a4id.length, a5id.length, 'ids')
