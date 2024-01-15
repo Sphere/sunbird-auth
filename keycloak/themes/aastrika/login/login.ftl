@@ -73,7 +73,7 @@
                                 <input class="mt-8" id="username" name="username" type="text" disabled />
                                 <#else>
                                   <input class="mt-8" id="username" name="username" onfocusin="inputBoxFocusIn(this)"
-                                    placeholder="Phone Number/Email ID" onfocusout="inputBoxFocusOut(this)" type="text"
+                                    placeholder="Phone Number/Email ID" onkeyup="checkCredentials()" onfocusout="inputBoxFocusOut(this)" type="text"
                                     autofocus autocomplete="off" />
                             </#if>
                           </div>
@@ -86,7 +86,7 @@
                                 ${msg("placeholderForPassword")}
                               </label>
                             </div>
-                            <input placeholder="${msg('passwordPlaceholder')}" class=" mt-8" id="password"
+                            <input placeholder="${msg('passwordPlaceholder')}" class=" mt-8" id="password" onkeyup="checkCredentials()"
                               onfocusin="this.placeholder=''" onfocusout="this.placeholder='password'" name="password"
                               autocomplete="new-password" type="password" />
                             <span class="ui text error hide"
@@ -154,7 +154,7 @@
                             <div
                               class="mdc-text-field mdc-text-field--with-leading-icon ${properties.kcLabelClass!} <#if usernameEditDisabled??>mdc-text-field--disabled</#if>">
                               <i class="material-icons mdc-text-field__icon" role="button">phone</i>
-                              <input tabindex="0" required id="user.attributes.mobile_number"
+                              <input tabindex="0" onkeyup="checkMobileEmail()" required id="emailOrPhoneOTP"
                                 class="mdc-text-field__input ${properties.kcInputClass!}"
                                 name="user.attributes.mobile_number" type="text" autofocus autocomplete="off">
                               <div class="mdc-line-ripple"></div>

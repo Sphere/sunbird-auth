@@ -177,6 +177,23 @@ window.onload = function(){
 	}
 };
 
+function checkMobileEmail() {
+  var regex = /^((([6-9][0-9]{9}))|([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}))$/;
+  let input = document.getElementById("emailOrPhoneOTP");
+  let btn = document.getElementById("otp-login")
+  if(input.test(regex) ) {
+    btn.disabled = false;
+  } else {
+    btn.disabled = true
+  }
+}
+
+function checkCredentials() {
+  var regex = /^((([6-9][0-9]{9}))|([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}))$/;
+  let input1 = document.getElementById("username");
+  let input2 = document.getElementById("password")
+  console.log(input1.test(regex), input2.value, input2.trim().length)
+}
 var storeValueForMigration = function () {
 	// storing values in sessionStorage for future references
 	sessionStorage.setItem('automerge', getValueFromSession('automerge'));
