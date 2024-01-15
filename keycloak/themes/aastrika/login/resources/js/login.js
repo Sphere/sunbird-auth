@@ -179,12 +179,13 @@ window.onload = function(){
 
 function checkMobileEmail() {
   var regex = /^((([6-9][0-9]{9}))|([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}))$/;
-  let input = document.getElementById("emailOrPhoneOTP");
+  let input = document.getElementById("emailOrPhone");
   let btn = document.getElementById("otp-login")
-  if(input.test(regex) ) {
-    btn.disabled = false;
+  let match = input.value.match(regex)
+  if(match !== null && match.length > 0 ) {
+    btn.setAttribute("enabled", "")
   } else {
-    btn.disabled = true
+    btn.setAttribute("disabled", "");
   }
 }
 
@@ -192,7 +193,14 @@ function checkCredentials() {
   var regex = /^((([6-9][0-9]{9}))|([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}))$/;
   let input1 = document.getElementById("username");
   let input2 = document.getElementById("password")
+  let btn = document.getElementById("login-username-password")
+  let match = input1.value.match(regex)
   console.log(input1.test(regex), input2.value, input2.trim().length)
+  if(match !== null && match.length > 0 && input2.value.trim().length > 7) {
+    btn.setAttribute("enabled", "");
+   } else {
+   btn.setAttribute("disabled", "");
+   }
 }
 var storeValueForMigration = function () {
 	// storing values in sessionStorage for future references
