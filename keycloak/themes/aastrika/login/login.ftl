@@ -130,7 +130,7 @@
                               <span class="whatsApp">
                                 <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
                               </span>
-                              <a class="ui fluid button greenButton" href="https://wa.me/919632013414?text=Hi"
+                              <a class="ui fluid button greenButton" href="https://api.whatsapp.com/send/?phone=919632013414&text=Hi"
                                 target="_blank" id="WhatsApp-loginOTP"
                                 onclick="otpClick(event,'WhatsApp', 'WhatsApp-loginOTP')">Get Help on WhatsApp?</a>
                               <!-- </span> -->
@@ -177,7 +177,7 @@
                         <input tabindex="0" required id="emailOrPhone" placeholder="Phone Number/Email ID"
                           class="mdc-text-field__input ${properties.kcInputClass!} mt-8" name="emailOrPhone" type="text"
                           autofocus autocomplete="off" onfocusin="inputBoxFocusIn(this)"
-                          onfocusout="inputBoxFocusOut(this)">
+                          onfocusout="inputBoxFocusOut(this)"  onkeyup="checkMobileEmail()">
                       </div>
 
                       <div class="mdc-card__actions">
@@ -209,7 +209,7 @@
                               <span class="whatsApp">
                                 <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
                               </span>
-                              <a class="ui fluid button greenButton" href="https://wa.me/919632013414?text=Hi"
+                              <a class="ui fluid button greenButton" href="https://api.whatsapp.com/send/?phone=919632013414&text=Hi"
                                 target="_blank" id="WhatsApp-loginOTP"
                                 onclick="return otpClick(event, 'WhatsApp', 'WhatsApp-loginOTP')">Get Help on
                                 WhatsApp?</a>
@@ -274,7 +274,7 @@
                     var url = `${client.baseUrl}app/create-account`
                     window.open(url, '_self').focus();
                   } else if (param1 === 'WhatsApp') {
-                    var url = `https://wa.me/919632013414?text=Hi`
+                    var url = `https://api.whatsapp.com/send/?phone=919632013414&text=Hi`
                     window.open(url, '_blank').focus();
                   }
 
@@ -306,7 +306,7 @@
                     var url = `${client.baseUrl}app/create-account`
                     window.open(url, '_self').focus();
                   } else if (param1 === 'WhatsApp') {
-                    var url = `https://wa.me/919632013414?text=Hi`
+                    var url = `https://api.whatsapp.com/send/?phone=919632013414&text=Hi`
                     window.open(url, '_blank').focus();
                   }
                 }
