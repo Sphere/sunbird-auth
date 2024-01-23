@@ -130,9 +130,9 @@
                               <span class="whatsApp">
                                 <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
                               </span>
-                              <a class="ui fluid button greenButton" href="#"
+                              <a class="ui fluid button greenButton" href="https://wa.me/919632013414?text=Hi"
                                 target="_blank" id="WhatsApp-loginOTP"
-                                onclick="otpClick(event,'WhatsApp', 'WhatsApp-loginOTP')">Get Help on WhatsApp?</a>
+                                >Get Help on WhatsApp?</a>
                               <!-- </span> -->
                             </div>
                           </div>
@@ -209,9 +209,9 @@
                               <span class="whatsApp">
                                 <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
                               </span>
-                              <a class="ui fluid button greenButton" href="#"
+                              <a class="ui fluid button greenButton" href="https://wa.me/919632013414?text=Hi"
                                 target="_blank" id="WhatsApp-loginOTP"
-                                onclick="return otpClick(event, 'WhatsApp', 'WhatsApp-loginOTP')">Get Help on
+                               >Get Help on
                                 WhatsApp?</a>
                             </div>
                           </div>

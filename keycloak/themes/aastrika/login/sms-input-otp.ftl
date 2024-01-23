@@ -56,7 +56,7 @@
                         </span>
                             <a class="ui fluid button greenButton"                           
                             href="https://wa.me/919632013414?text=Hi"
-                            target="_blank" id="WhatsApp-loginOTP" onclick="return otpClick(event,'WhatsApp', 'WhatsApp-loginOTP')">Get Help on WhatsApp?</a>
+                            target="_blank" id="WhatsApp-loginOTP">Get Help on WhatsApp?</a>
                         </div>
                         <#if client?? && client.baseUrl?has_content>
                             <div class="${properties.kcFormOptionsWrapperClass!} signUpMsg mb-56 mt-45 textCenter">
