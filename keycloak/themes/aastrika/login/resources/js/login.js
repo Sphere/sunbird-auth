@@ -8,14 +8,27 @@ window.onload = function () {
   var isForgetPasswordAllow = getValueFromSession('version');
   var renderingType = 'queryParams';
   let url = document.baseURI
-  let btn1 = document.getElementById("otp-login")
-  let btn2 = document.getElementById("login-username-password")
-  if (btn1) {
-    btn1.setAttribute("disabled", "")
-  }
-  if (btn2) {
-    btn2.setAttribute("disabled", "")
-  }
+  let uname = document.getElementById("username")
+	let upwd = document.getElementById("password")	
+	var regex1 = /^((([6-9][0-9]{9}))|([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}))$/;
+	let match1 = regex1.test(uname.value)
+	
+	var regex2 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\ *])(?=.{8,})/g;
+	let match2 = regex2.test(upwd.value)
+	console.log(match1, match2)
+	console.log(upwd.value.trim().length > 7)
+
+	let btn1 = document.getElementById("otp-login")
+	let btn2 = document.getElementById("login-username-password")
+	if(match1 === true && match2 === true && upwd.value.trim().length > 7) {
+		btn2.setAttribute("enabled", "")
+	} else {
+		btn2.setAttribute("disabled", "")
+	}
+	
+	if(btn1) {
+		btn1.setAttribute("disabled", "")
+	}
 
   console.log(url, '0000')
   if (url.includes('app=Ekshamata') || url.includes('app=Sphere')) {
@@ -190,7 +203,6 @@ function checkMobileEmail() {
   let input = document.getElementById("emailOrPhone");
   let btn = document.getElementById("otp-login")
   let match = regex.test(input.value)
-  console.log(match)
   if (match) {
     btn.removeAttribute("disabled")
     btn.setAttribute("enabled", "")
@@ -200,19 +212,21 @@ function checkMobileEmail() {
 }
 
 function checkCredentials() {
-  var regex = /^((([6-9][0-9]{9}))|([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}))$/;
-  let input1 = document.getElementById("username");
-  let input2 = document.getElementById("password")
-  let btn = document.getElementById("login-username-password")
-  let match = regex.test(input1.value)
-  console.log(match, input2.value.trim().length, match === true && input2.value.trim().length > 7)
-  if (match === true && input2.value.trim().length > 7) {
+  var regex1 = /^((([6-9][0-9]{9}))|([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}))$/;
+    var regex2 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\ *])(?=.{8,})/g;
+    let input1 = document.getElementById("username");
+    let input2 = document.getElementById("password")
+    let btn = document.getElementById("login-username-password")
+    let match1 = regex1.test(input1.value)
+    let match2 = regex2.test(input2.value)
+    console.log(input2.value.trim().length, input2.value.trim().length > 7)
+    if(match1 === true && match2 === true && input2.value.trim().length > 7) {
     btn.removeAttribute("disabled")
-    btn.setAttribute("enabled", "");
-  } else {
-    btn.setAttribute("disabled", "");
+      btn.setAttribute("enabled", "");
+     } else {
+     btn.setAttribute("disabled", "");
+     }
   }
-}
 
 var storeValueForMigration = function () {
   // storing values in sessionStorage for future references
