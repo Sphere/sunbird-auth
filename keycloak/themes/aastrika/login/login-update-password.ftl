@@ -30,7 +30,7 @@
                                 <div class="ui search">
                                     <div class="ui icon input">
                                         <input class="" type="password" id="password-new" onfocusin="inputBoxFocusIn(this)" onfocusout="inputBoxFocusOut(this)" name="password-new" autocomplete="off" />    
-                                        <i class="eye icon link" onclick="viewPassword(this)"></i>
+                                        <i class="eye icon link slash" onclick="viewPassword(this)"></i>
                                         <!--i id="preview-hide" class="eye slash icon hide link"></i-->
                                     </div>
                                 </div>
@@ -42,7 +42,12 @@
                                 <label id="password-confirmLabelPlaceholder" class="activeLabelColor hide" for="password-confirm">
                                     ${msg("passwordConfirm")}
                                 </label>
+                                <div class="ui search">
+                                    <div class="ui icon input">
                                 <input type="password" class="mt-8" onfocusin="inputBoxFocusIn(this)" onfocusout="inputBoxFocusOut(this)" id="password-confirm" name="password-confirm" autocomplete="off" />
+                                <i class="eye icon link slash" onclick="viewNewPassword(this)"></i>
+                                    </div>
+                                </div>
                             </div>
                             <div class="field">
                                 <button id="login" class="ui fluid button submit mt-40" onclick="javascript:makeDivUnclickable()">

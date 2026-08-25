@@ -5,7 +5,7 @@
     <#elseif section = "form">
     <div class="custom-wrapper">
         <div class="custom-grid">
-            <div class="ui raised shadow container segment fullpage-background-image left-box">
+            <div class="ui raised shadow container segment fullpage-background-image left-box" style="display: none !important;">
                 <div class="ui column height-fix" style="padding:0">
                     <div class="logo" style="width: 320px; max-width:100%">
                         <img src="${url.resourcesPath}/img/dopt_logo.png" alt="Logo" style="width: inherit;">
@@ -38,8 +38,8 @@
                 </div>
                 
             </div>
-            <div class="ui raised shadow container segment fullpage-background-image login-section">
-                <div class="ui one column grid stackable">
+            <div class="ui raised shadow container segment fullpage-background-image login-section" style="width: 100% !important;">
+                <div class="ui one column grid stackable" style="width: inherit !important;">
                     <#--  <div class="ui column tablet only computer only"></div>  -->
                     <div class="ui column height-fix">
                         <div class="max-container mw-100">
@@ -60,7 +60,7 @@
                                             </script>
 
                                     <#elseif actionUri??>
-                                        <div class="ui text active centered inline large loader">Loading.. Please wa<p><a id="click-here-to-proceed" href="${actionUri}">${kcSanitize(msg("proceedWithAction"))?no_esc}</a></p>it..</div>
+                                        <div class="ui text active centered inline large loader" style="width: inherit !important;font-size: 13px !important;">Loading.. Please wait<p><a id="click-here-to-proceed" href="${actionUri}">${kcSanitize(msg("proceedWithAction"))?no_esc} it..</a></p></div>
                                         <div id="kc-info-message-hide" style="display:none">
                                             <p><a id="click-here-to-proceed" href="${actionUri}">${kcSanitize(msg("proceedWithAction"))?no_esc}</a></p>
                                             <script type="text/javascript">
