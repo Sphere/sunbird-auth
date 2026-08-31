@@ -12,6 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
@@ -42,6 +43,9 @@ import org.sunbird.keycloak.utils.SunbirdModelUtils;
 
 import com.amazonaws.util.CollectionUtils;
 
+/**
+ * Aastrika specific
+ */
 public class PasswordAndOtpAuthenticator extends AbstractUsernameFormAuthenticator {
 
 	Logger logger = Logger.getLogger(PasswordAndOtpAuthenticator.class);
@@ -201,9 +205,12 @@ public class PasswordAndOtpAuthenticator extends AbstractUsernameFormAuthenticat
 			return null;
 		}
 
-		if (invalidUser(context, user)) {
-			return null;
-		}
+		/*if (invalidUser(context, user)) {
+      		return false;
+    	}*/
+		//found the method name but we need to see how error will be responded back
+		testInvalidUser(context, user);
+
 		return user;
 	}
 
@@ -427,8 +434,8 @@ public class PasswordAndOtpAuthenticator extends AbstractUsernameFormAuthenticat
 		String enteredCode = formData.getFirst(KeycloakSmsAuthenticatorConstants.ANSW_SMS_CODE);
 		KeycloakSession session = context.getSession();
 
-		List<?> codeCreds = session.userCredentialManager().getStoredCredentialsByType(context.getRealm(),
-				context.getUser(), KeycloakSmsAuthenticatorConstants.USR_CRED_MDL_SMS_CODE);
+		List<?> codeCreds = session.userCredentialManager().getStoredCredentialsByTypeStream(context.getRealm(),
+				context.getUser(), KeycloakSmsAuthenticatorConstants.USR_CRED_MDL_SMS_CODE).collect(Collectors.toList());
 
 		if (!CollectionUtils.isNullOrEmpty(codeCreds)) {
 			CredentialModel expectedCode = (CredentialModel) codeCreds.get(0);
@@ -436,8 +443,8 @@ public class PasswordAndOtpAuthenticator extends AbstractUsernameFormAuthenticat
 		}
 
 		if (result == CODE_STATUS.VALID) {
-			List<?> timeCreds = session.userCredentialManager().getStoredCredentialsByType(context.getRealm(),
-					context.getUser(), KeycloakSmsAuthenticatorConstants.USR_CRED_MDL_SMS_EXP_TIME);
+			List<?> timeCreds = session.userCredentialManager().getStoredCredentialsByTypeStream(context.getRealm(),
+					context.getUser(), KeycloakSmsAuthenticatorConstants.USR_CRED_MDL_SMS_EXP_TIME).collect(Collectors.toList());
 			if (!CollectionUtils.isNullOrEmpty(timeCreds)) {
 				CredentialModel expTimeString = (CredentialModel) timeCreds.get(0);
 				Long currentTime = (new Date()).getTime();

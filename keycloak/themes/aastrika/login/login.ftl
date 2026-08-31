@@ -14,7 +14,7 @@
                   </div> -->
                   <div class="ui column height-fix">
                     <div class="logo">
-                      <a href="/public/home">
+                      <a id="sphere-anchor" href="/public/home">
                         <img alt="Logo" src="${url.resourcesPath}/img/sphere-new-logo.svg" width="120">
                       </a>
                     </div>
@@ -73,7 +73,7 @@
                                 <input class="mt-8" id="username" name="username" type="text" disabled />
                                 <#else>
                                   <input class="mt-8" id="username" name="username" onfocusin="inputBoxFocusIn(this)"
-                                    placeholder="Phone Number/Email ID" onfocusout="inputBoxFocusOut(this)" type="text"
+                                    placeholder="Phone Number/Email ID" onkeyup="checkCredentials()" onfocusout="inputBoxFocusOut(this)" type="text"
                                     autofocus autocomplete="off" />
                             </#if>
                           </div>
@@ -86,9 +86,9 @@
                                 ${msg("placeholderForPassword")}
                               </label>
                             </div>
-                            <input placeholder="${msg('passwordPlaceholder')}" class=" mt-8" id="password"
-                              onfocusin="inputBoxFocusIn(this)" onfocusout="inputBoxFocusOut(this)" name="password"
-                              type="password" autocomplete="off" />
+                            <input placeholder="${msg('passwordPlaceholder')}" class=" mt-8" id="password" onkeyup="checkCredentials()"
+                              onfocusin="this.placeholder=''" onfocusout="this.placeholder='password'" name="password"
+                              autocomplete="new-password" type="password" />
                             <span class="ui text error hide"
                               id="inCorrectPasswordError">${msg("inCorrectPasswordError")}</span>
                           </div>
@@ -103,17 +103,18 @@
                           </div>
                           <div>
                             <#if realm.resetPasswordAllowed>
-                            <a id="fgtKeycloakFlow" class="ui right floated forgetPasswordLink hide" tabindex="1"
-                              onclick="javascript:storeLocation(); javascript:makeDivUnclickable()"
-                              href="${client.baseUrl}public/forgot-password?value=true">${msg("doForgotPassword")}</a>
-                            
-                          </#if>
+                              <a id="fgtKeycloakFlow" class="ui right floated forgetPasswordLink" tabindex="1"
+                                onclick="javascript:storeLocation(); javascript:makeDivUnclickable()"
+                                href="${client.baseUrl}public/forgot-password?value=true">${msg("doForgotPassword")}</a>
+
+                            </#if>
                           </div>
                           <div class="field mt-10">
-                            <button id="login-username-password" class="ui fluid button blueButton" onclick="otpClick(event, 'Login Button', 'login-username-password')">${msg("doLogIn")}</button>
+                            <button id="login-username-password" class="ui fluid button blueButton"
+                              onclick="otpClick(event, 'Login Button', 'login-username-password')">${msg("doLogIn")}</button>
                           </div>
                           <div class="field or-container">
-                            <div class="or-holder">
+                            <div class="or-holder" id="or-holder">
                               <span class=""></span>
                               <span class="">OR</span>
                             </div>
@@ -122,37 +123,38 @@
                           <div id="kc-registration" class="field">
                             <div class="ui content mt-20 signUpMsg">
                               <!-- <span> -->
-                                <!-- ${msg("noAccount")} -->
-                                <a class="ui fluid button whiteButton"
-                                  href="${client.baseUrl}app/create-account" onclick="otpClick(event, 'Create Account', 'createAccount-loginOTP')" id="createAccount-loginOTP">${msg("registerHere")}</a>
-                                  <span class="whatsApp">
-                                    <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
-                                </span>
-                                  <a class="ui fluid button greenButton"
-                                  href="https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform"
-                                  target="_blank" id="WhatsApp-loginOTP" onclick="otpClick(event,'WhatsApp', 'WhatsApp-loginOTP')">Get Help on WhatsApp?</a>
+                              <!-- ${msg("noAccount")} -->
+                              <a class="ui fluid button whiteButton" href="${client.baseUrl}app/create-account"
+                                onclick="otpClick(event, 'Create Account', 'createAccount-loginOTP')"
+                                id="createAccount-loginOTP">${msg("registerHere")}</a>
+                              <span class="whatsApp">
+                                <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
+                              </span>
+                              <a class="ui fluid button greenButton" href="https://wa.me/919632013414?text=Hi"
+                                target="_blank" id="WhatsApp-loginOTP"
+                                >Get Help on WhatsApp?</a>
                               <!-- </span> -->
                             </div>
                           </div>
                           <div id="selfSingUp" class="hide">
-                            
+
                             <div class="field">
-                             
-                             
+
+
                             </div>
-                           
+
                           </div>
                         </form>
                       </div>
                       <div id="useOTPDiv" class="mw-100">
-                        <form id="kc-form-login" class="${properties.kcFormClass!} ui form"
-                          action="${url.loginAction}" method="post">
+                        <form id="kc-form-login" class="${properties.kcFormClass!} ui form" action="${url.loginAction}"
+                          method="post">
                           <input type="hidden" name="page_type" value="login_page" />
                           <#-- <div class="${properties.kcFormGroupClass!}">
                             <div
                               class="mdc-text-field mdc-text-field--with-leading-icon ${properties.kcLabelClass!} <#if usernameEditDisabled??>mdc-text-field--disabled</#if>">
                               <i class="material-icons mdc-text-field__icon" role="button">phone</i>
-                              <input tabindex="0" required id="user.attributes.mobile_number"
+                              <input tabindex="0" onkeyup="checkMobileEmail()" required id="emailOrPhoneOTP"
                                 class="mdc-text-field__input ${properties.kcInputClass!}"
                                 name="user.attributes.mobile_number" type="text" autofocus autocomplete="off">
                               <div class="mdc-line-ripple"></div>
@@ -161,7 +163,7 @@
                                 Phone Number
                               </label>
                             </div>
-                      </div> -->
+                          </div> -->
 
                       <div class="field">
                         <div>
@@ -175,7 +177,7 @@
                         <input tabindex="0" required id="emailOrPhone" placeholder="Phone Number/Email ID"
                           class="mdc-text-field__input ${properties.kcInputClass!} mt-8" name="emailOrPhone" type="text"
                           autofocus autocomplete="off" onfocusin="inputBoxFocusIn(this)"
-                          onfocusout="inputBoxFocusOut(this)">
+                          onfocusout="inputBoxFocusOut(this)"  onkeyup="checkMobileEmail()">
                       </div>
 
                       <div class="mdc-card__actions">
@@ -185,10 +187,12 @@
                           </a> -->
 
                           <div class="field">
-                            <button tabindex="0" name="otp-login" id="otp-login" type="submit" class="ui fluid button blueButton" onclick="otpClick(event, 'Login Button with OTP', 'otp-login')">Get OTP</button>
+                            <button tabindex="0" name="otp-login" id="otp-login" type="submit"
+                              class="ui fluid button blueButton"
+                              onclick="otpClick(event, 'Login Button with OTP', 'otp-login')">Get OTP</button>
                           </div>
                           <div class="field or-container">
-                            <div class="or-holder">
+                            <div class="or-holder" id="or-holder">
                               <span class=""></span>
                               <span class="">OR</span>
                             </div>
@@ -197,25 +201,27 @@
                           <div id="kc-registration" class="field">
                             <div class="ui content mt-20 signUpMsg">
                               <!-- <span> -->
-                                <!-- ${msg("noAccount")}  -->
-                                <a class="ui fluid button whiteButton"
-                                  href="${client.baseUrl}app/create-account" onclick="return otpClick(event, 'Create Account', 'createAccount-loginOTP')" id="createAccount-loginOTP">${msg("registerHere")}</a>
+                              <!-- ${msg("noAccount")}  -->
+                              <a class="ui fluid button whiteButton" href="${client.baseUrl}app/create-account"
+                                onclick="return otpClick(event, 'Create Account', 'createAccount-loginOTP')"
+                                id="createAccount-loginOTP">${msg("registerHere")}</a>
                               <!-- </span> -->
                               <span class="whatsApp">
                                 <img alt="Logo" src="${url.resourcesPath}/img/whatsapp.png" width="30">
-                            </span>
-                              <a class="ui fluid button greenButton"
-                                href="https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform"
-                                target="_blank" id="WhatsApp-loginOTP" onclick="return otpClick(event, 'WhatsApp', 'WhatsApp-loginOTP')">Get Help on WhatsApp?</a>
+                              </span>
+                              <a class="ui fluid button greenButton" href="https://wa.me/919632013414?text=Hi"
+                                target="_blank" id="WhatsApp-loginOTP"
+                               >Get Help on
+                                WhatsApp?</a>
                             </div>
                           </div>
                           <div id="selfSingUp" class="hide">
                             <p class="or my-16 textCenter">OR</p>
                             <div class="field">
-                             
-                             
+
+
                             </div>
-                          
+
                           </div>
                       </div>
                       </form>
@@ -231,133 +237,141 @@
             <script type="text/javascript">
               var slideIndex = 0;
               showSlides();
-              function otpClick(e, param1, param2){
+              let url = document.baseURI
+              console.log(url)
+              if (url.includes('app=Sphere')) {
+                let ele = document.getElementById('createAccount-loginOTP')
+                ele.classList.add("hide");
+              } else {
+                ele.classList.remove("hide");
+              }
+              function otpClick(e, param1, param2) {
                 try {
-                e.preventDefault()
-                let obj = {
-                EventDetails: {
-                  EventName: param1,
-                  Name : param2
-                }
-              }
-              const userdata = Object.assign(MainVisitorDetails, obj)
-              fetch("https://track.plumb5.com/EventDetails/SaveEventDetails", {
-                method: "POST",
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify( userdata)
-              }).then(res => {
-                if(param1 === 'Login Button with OTP') {
-                  let enteredValue = document.getElementById("kc-form-login").elements[1].value
-                  sessionStorage.setItem('enteredValue', enteredValue)
-                  execute(enteredValue, 'kc-form-login');
-                  //setTimeout(document.getElementById("kc-form-login").submit(), 1000);
-                } else if(param1 === 'Login Button'){
-                  //setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
-                  let enteredValue = document.getElementById("kc-form-login-pwd").elements[1].value
-                  sessionStorage.setItem('enteredValue', enteredValue)
-                  execute(enteredValue, 'kc-form-login-pwd');
-                } else if(param1 === 'Create Account'){
-                  var url = `${client.baseUrl}app/create-account`
-                  window.open(url, '_self').focus();
-                } else if(param1 === 'WhatsApp'){
-                  var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
-                  window.open(url, '_blank').focus();
-                }
+                  e.preventDefault()
+                  let obj = {
+                    EventDetails: {
+                      EventName: param1,
+                      Name: param2
+                    }
+                  }
+                  // const userdata = Object.assign(MainVisitorDetails, obj)
+                  // fetch("https://track.plumb5.com/EventDetails/SaveEventDetails", {
+                  //   method: "POST",
+                  //   headers: {'Content-Type': 'application/json'},
+                  //   body: JSON.stringify( userdata)
+                  // }).then(res => {
+                  if (param1 === 'Login Button with OTP') {
+                    let enteredValue = document.getElementById("kc-form-login").elements[1].value
+                    sessionStorage.setItem('enteredValue', enteredValue)
+                    execute(enteredValue, 'kc-form-login');
+                    //setTimeout(document.getElementById("kc-form-login").submit(), 1000);
+                  } else if (param1 === 'Login Button') {
+                    //setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
+                    let enteredValue = document.getElementById("kc-form-login-pwd").elements[1].value
+                    sessionStorage.setItem('enteredValue', enteredValue)
+                    execute(enteredValue, 'kc-form-login-pwd');
+                  } else if (param1 === 'Create Account') {
+                    var url = `${client.baseUrl}app/create-account`
+                    window.open(url, '_self').focus();
+                  } else if (param1 === 'WhatsApp') {
+                    var url = `https://api.whatsapp.com/send/?phone=919632013414&text=Hi`
+                    window.open(url, '_blank').focus();
+                  }
 
-                // if (document.getElementById("kc-form-login")) {
-                //   setTimeout("submitForm()", 1000); // set timout
-                // }
-              }).catch(error => {
-                console.log(error)
-              // do something with error
-              if(param1 === 'Login Button with OTP') {
-                  setTimeout(document.getElementById("kc-form-login").submit(), 1000);
-                } else if(param1 === 'Login Button'){
-                  setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
-                } else if(param1 === 'Create Account'){
-                  var url = `${client.baseUrl}app/create-account`
-                  window.open(url, '_self').focus();
-                } else if(param1 === 'WhatsApp'){
-                  var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
-                  window.open(url, '_blank').focus();
+                  // if (document.getElementById("kc-form-login")) {
+                  //   setTimeout("submitForm()", 1000); // set timout
+                  // }
+                  //}).catch(error => {
+                  console.log(error)
+                  // do something with error
+                  // if(param1 === 'Login Button with OTP') {
+                  //     setTimeout(document.getElementById("kc-form-login").submit(), 1000);
+                  //   } else if(param1 === 'Login Button'){
+                  //     setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
+                  //   } else if(param1 === 'Create Account'){
+                  //     var url = `${client.baseUrl}app/create-account`
+                  //     window.open(url, '_self').focus();
+                  //   } else if(param1 === 'WhatsApp'){
+                  //     var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
+                  //     window.open(url, '_blank').focus();
+                  //   }
+                  //})
+                } catch (error) {
+                  // code to run if there are any problems
+                  if (param1 === 'Login Button with OTP') {
+                    setTimeout(document.getElementById("kc-form-login").submit(), 1000);
+                  } else if (param1 === 'Login Button') {
+                    setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
+                  } else if (param1 === 'Create Account') {
+                    var url = `${client.baseUrl}app/create-account`
+                    window.open(url, '_self').focus();
+                  } else if (param1 === 'WhatsApp') {
+                    var url = `https://api.whatsapp.com/send/?phone=919632013414&text=Hi`
+                    window.open(url, '_blank').focus();
+                  }
                 }
-              })
-            } catch(error) {
-                // code to run if there are any problems
-                if(param1 === 'Login Button with OTP') {
-                  setTimeout(document.getElementById("kc-form-login").submit(), 1000);
-                } else if(param1 === 'Login Button'){
-                  setTimeout(document.getElementById("kc-form-login-pwd").submit(), 1000);
-                } else if(param1 === 'Create Account'){
-                  var url = `${client.baseUrl}app/create-account`
-                  window.open(url, '_self').focus();
-                } else if(param1 === 'WhatsApp'){
-                  var url = `https://wa.me/919632013414?text=Hi%2C%20Need%20help%20on%20Aastrika%20Platform`
-                  window.open(url, '_blank').focus();
+                return true
+              }
+              // function submitForm() { // submits form
+              //   console.log(document.getElementById("kc-form-login"))
+              //   debugger
+              //   if(param1 === 'Login Button with OTP') {
+              //   document.getElementById("kc-form-login").submit();
+              //   } else {
+              //     document.getElementById("kc-form-login-pwd").submit();
+              //   }
+              // }
+              function execute(value, formName) {
+                try {
+                  var emailRegex = /^[a-zA-Z0-9 .!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9- ]+)*$/
+                  var isEmail = emailRegex.test(value);
+                  var phoneRegex = /^(\+91-|\+91|0)?\d{10}$/; // Change this regex based on requirement
+                  var isPhone = phoneRegex.test(value);
+                  console.log(isPhone, isEmail)
+                  let userInfo
+                  if (isEmail) {
+                    let obj2 = {
+                      "answerDetails": ["", "", value.trim(), ""]
+                    }
+                    userInfo = Object.assign(MainVisitorDetails, obj2)
+                  }
+                  if (isPhone) {
+                    let obj2 = {
+                      "answerDetails": ["", "", "", value.trim()]
+                    }
+                    userInfo = Object.assign(MainVisitorDetails, obj2)
+                  }
+                  console.log(userInfo)
+                  let obj3 = {
+                    "FormInfoDetails": {
+                      "FormId": 8,
+                      "OTPFormId": 0,
+                      "FormType": 1,
+                      "BannerId": 0,
+                      "RedirectUrl": "",
+                      "Name": "",
+                      "EmailId": ""
+                    },
+                    "MainVisitorDetails": userInfo
+                  }
+                  console.log(obj3, formName)
+                  // fetch('https://track.plumb5.com/FormInfoDetails/SaveFormDetails',{
+                  //   method: "POST",
+                  //   headers: {'Content-Type': 'application/json'},
+                  //   body: JSON.stringify( obj3)
+                  // }).then(res => {
+                  console.log(res)
+                  if (formName === 'kc-form-login') {
+                    setTimeout(document.getElementById("kc-form-login").submit(), 500);
+                  }
+                  if (formName === 'kc-form-login-pwd') {
+                    setTimeout(document.getElementById("kc-form-login-pwd").submit(), 500);
+                  }
+                  //})
+                } catch (error) {
+                  console.log(error)
                 }
               }
-              return true
-            }
-            // function submitForm() { // submits form
-            //   console.log(document.getElementById("kc-form-login"))
-            //   debugger
-            //   if(param1 === 'Login Button with OTP') {
-            //   document.getElementById("kc-form-login").submit();
-            //   } else {
-            //     document.getElementById("kc-form-login-pwd").submit();
-            //   }
-            // }
-            function execute(value, formName) {
-              try {
-              var emailRegex = /^[a-zA-Z0-9 .!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9- ]+)*$/
-                var isEmail = emailRegex.test(value);
-                var phoneRegex = /^(\+91-|\+91|0)?\d{10}$/; // Change this regex based on requirement
-                var isPhone = phoneRegex.test(value);
-                console.log(isPhone, isEmail)
-                let userInfo
-                if(isEmail) {
-                  let obj2 = {
-                    "answerDetails": ["", "",value.trim(), ""]
-                  }
-                  userInfo  = Object.assign(MainVisitorDetails, obj2)
-                } 
-                if(isPhone) {
-                  let obj2 = {
-                    "answerDetails": ["", "", "", value.trim()]
-                  }
-                  userInfo  = Object.assign(MainVisitorDetails, obj2)
-                }
-                console.log(userInfo)
-                let obj3 = {
-                  "FormInfoDetails": {
-                    "FormId": 8,
-                    "OTPFormId": 0,
-                    "FormType": 1,
-                    "BannerId": 0,
-                    "RedirectUrl": "",
-                    "Name": "",
-                    "EmailId": ""
-                  },
-                  "MainVisitorDetails": userInfo
-                }
-                console.log(obj3, formName)
-                fetch('https://track.plumb5.com/FormInfoDetails/SaveFormDetails',{
-                  method: "POST",
-                  headers: {'Content-Type': 'application/json'},
-                  body: JSON.stringify( obj3)
-                }).then(res => {
-                console.log(res)
-                if(formName === 'kc-form-login') {
-                  setTimeout(document.getElementById("kc-form-login").submit(), 500);
-                }
-                if(formName === 'kc-form-login-pwd') {
-                  setTimeout(document.getElementById("kc-form-login-pwd").submit(), 500);
-                }
-                })
-              } catch(error) {
-              console.log(error)
-              }
-            }
               function showSlides() {
                 var i;
                 var slides = document.getElementsByClassName("mySlides");
@@ -378,6 +392,9 @@
               function passwordOrOtp() {
                 if (document.getElementById('usePasswordRB').checked) {
                   document.getElementById('usePasswordDiv').style.display = 'block';
+                  let form = document.getElementById('kc-form-login-pwd');
+                  form.setAttribute('autocomplete', 'off');
+                  //document.getElementById("kc-form-login-pwd").autocomplete = "off";
                   document.getElementById('useOTPDiv').style.display = 'none';
                 } else {
                   document.getElementById('usePasswordDiv').style.display = 'none';

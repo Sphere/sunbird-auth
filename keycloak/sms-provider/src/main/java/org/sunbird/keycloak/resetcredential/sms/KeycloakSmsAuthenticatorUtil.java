@@ -12,6 +12,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 /**
  * Created by joris on 18/11/2016.
@@ -22,7 +23,7 @@ public class KeycloakSmsAuthenticatorUtil {
 
     public static String getAttributeValue(UserModel user, String attributeName) {
         String result = null;
-        List<String> values = user.getAttribute(attributeName);
+        List<String> values = user.getAttributeStream(attributeName).collect(Collectors.toList());
         if (values != null && values.size() > 0) {
             result = values.get(0);
         }
@@ -114,6 +115,7 @@ public class KeycloakSmsAuthenticatorUtil {
         return false;
     }
 
+    // Making it public for Aastrika specific
     public static String getSmsCode(long nrOfDigits) {
         if (nrOfDigits < 1) {
             throw new RuntimeException("Number of digits must be bigger than 0");

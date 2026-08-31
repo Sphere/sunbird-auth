@@ -20,7 +20,9 @@ body{
     font-size: 14px !important;
 }
 .custom-grid{
-    display: grid;
+    /* display: grid; */
+    display: flex !important;
+    justify-content: center;
     align-items: center;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10rem;
